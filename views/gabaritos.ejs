@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>GABARITOS</title>
+</head>
+<body>
+<hr>
+<div class="container-sm">
+    <div class="h1 text-center">JULHO</div>
+</div>
+<hr>
+<div class="container-sm">
+    <div class="h1 text-center">D1 – Localizar informações explícitas em um texto</div>
+</div>
+<div class="container-sm">
+                
+                <% lpd1.forEach((lpd1) => { %>
+                    <table class="table table-bordered table-sm">
+                    <tbody>
+                    <tr>
+                        <th class="align-middle">NOME</th>
+                        <th class="align-middle">Q1</th>
+                        <th class="align-middle">Q2</th>
+                        <th class="align-middle">Q3</th>
+                        <th class="align-middle">Q4</th>
+                        <th class="align-middle">Q5</th>
+                        <th class="align-middle">Q6</th>
+                        <th class="align-middle">Q7</th>
+                        <th class="align-middle">Q8</th>
+                        <th class="align-middle">Q9</th>
+                        <th class="align-middle">Q10</th>
+                        <th class="align-middle">NOTA</th>
+                        <th class="align-middle">AÇÃO</th>                   
+                    </tr>
+                   
+                    <tr>
+                        <td class="align-middle text-nowrap"><%= lpd1.nome %></td>
+                        <td class="align-middle">
+                            <%= lpd1.q1 %>
+                            <%
+                                if(lpd1.q1=="A"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd1.q2 %>
+                            <% 
+                                if(lpd1.q2 == "B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd1.q3 %>
+                            <% 
+                                if(lpd1.q3 == "C"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        
+                        <td class="align-middle">
+                            <%= lpd1.q4 %>
+                            <% 
+                                if(lpd1.q4 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd1.q5 %>
+
+                            <% 
+                                if(lpd1.q5 == "D"){
+                                    total++
+                                }
+                            %>
+                        
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd1.q6 %>
+                            <% 
+                                if(lpd1.q6 == "B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd1.q7 %>
+                            <% 
+                                if(lpd1.q7 == "B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd1.q8 %>
+                            <% 
+                                if(lpd1.q8 == "A"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd1.q9 %>
+                            <% 
+                                if(lpd1.q9 == "B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd1.q10 %>
+                            <% 
+                                if(lpd1.q10 == "B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+
+                        <td class="align-middle"><%= total %></td>
+                        <% total = 0 %>
+
+                        <td class="align-middle">
+                            <form method="POST" action="/deletarlpd1">
+                                <input type="hidden" name="id" value="<%=lpd1.id%>">
+                                <button class="btn btn-danger">Deletar</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+                
+            </tbody>
+        </table>
+</div>
+
+</body>
+
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/popper.min.js"></script>
+</html>
