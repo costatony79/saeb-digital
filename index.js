@@ -11,6 +11,9 @@ const connection = require("./database/database");
 //model do BD para receber as respostas do gabarito de LPD1
 const Lpd1 = require("./database/Lpd1");
 
+//model do BD para receber as respostas do gabarito de LPD3
+const Lpd3 = require("./database/Lpd3");
+
 
 //Conexão com o banco de dados
 connection
@@ -48,12 +51,19 @@ app.get("/gabaritos", (req, res) => {
     });
 });
 
+// ROTAS PARA AS PÁGINAS DAS QUESTÕES
+//************************************************************************************
 //rota para a página das questões de LPD1
 app.get("/lpd1", (req, res) => {
     res.render("lpd1");
 });
+//rota para a página das questões de LPD3
+app.get("/lpd3", (req, res) => {
+    res.render("lpd3");
+});
 
-
+// ROTAS PARA ENVIO DOS GABARITOS
+//************************************************************************************ */
 //rota para envio do gabarito de LPD1
 app.post("/gabarito_lpd1", (req, res) => {
     var nome = req.body.name;
@@ -110,7 +120,66 @@ app.post("/gabarito_lpd1", (req, res) => {
     }
 });
 
-//rota para apagar um registro da tabela de história
+//rota para envio do gabarito de LPD3
+app.post("/gabarito_lpd3", (req, res) => {
+    var nome = req.body.name;
+    var q1 = req.body.q1;
+    var q2 = req.body.q2;
+    var q3 = req.body.q3;
+    var q4 = req.body.q4;
+    var q5 = req.body.q5;
+    var q6 = req.body.q6;
+    var q7 = req.body.q7;
+    var q8 = req.body.q8;
+    var q9 = req.body.q9;
+    var q10 = req.body.q10;
+    
+    if(nome==""||q1==null||q2==null||q3==null||q4==null||q5==null||q6==null
+    ||q7==null||q8==null||q9==null||q10==null){
+        notifier.notify({
+            title: 'RESPONDA TODAS AS PERGUNTAS',
+            message: 'Você não pode deixar nenhum campo em branco.'
+          });
+        res.redirect("/lpd1");
+    }else {
+        Lpd3.create({
+            nome: nome.toUpperCase(),
+            q1: q1,
+            q2: q2,
+            q3: q3,
+            q4: q4,
+            q5: q5,
+            q6: q6,
+            q7: q7,
+            q8: q8,
+            q9: q9,
+            q10: q10
+        }).then(() => {
+            notifier.notify({
+                title: 'GABARITO SALVO COM SUCESSO',
+                message: 'Parabéns você preencheu tudo.'
+              });
+              res.render("confirmacao", {
+                nome: nome,
+                q1: q1,
+                q2: q2,
+                q3: q3,
+                q4: q4,
+                q5: q5,
+                q6: q6,
+                q7: q7,
+                q8: q8,
+                q9: q9,
+                q10: q10
+            });
+        });
+    }
+});
+
+// ROTAS PARA APAGAR REGISTROS NO BANCO DE DADOS
+//*************************************************************************************** */
+
+//rota para apagar um registro da tabela de LPD1
 app.post("/deletarlpd1", (req, res) => {
     var id = req.body.id;
     if(id != undefined){
@@ -126,6 +195,21 @@ app.post("/deletarlpd1", (req, res) => {
     
     });
 
+//rota para apagar um registro da tabela de LPD3
+app.post("/deletarlpd3", (req, res) => {
+    var id = req.body.id;
+    if(id != undefined){
+        Lpd3.destroy({
+            where: {
+                id: id
+            }
+            
+        }).then(()=>{
+            res.redirect("/lpd3");
+        });
+    }
+    
+    });
 
 //servidor
 app.listen(1519, ()=>{
