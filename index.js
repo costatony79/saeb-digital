@@ -40,13 +40,20 @@ app.get("/", (req, res) => {
     res.render("index");
 });
 
-//rota para exibição da página com o gabarito de história
+//rota para exibição da página com todos os gabaritos
 app.get("/gabaritos", (req, res) => {
     var total = 0;
+    var lpdescritor3;
+    
+    Lpd3.findAll({order: [['nome', 'ASC']]}).then(lpd3 => {
+        lpdescritor3 = lpd3;
+    });
+
     Lpd1.findAll({order: [['nome', 'ASC']]}).then(lpd1 => {
         res.render("gabaritos", {
             total: total,
-            lpd1: lpd1 
+            lpd1: lpd1 ,
+            lpd3: lpdescritor3
         }); 
     });
 });
@@ -140,7 +147,7 @@ app.post("/gabarito_lpd3", (req, res) => {
             title: 'RESPONDA TODAS AS PERGUNTAS',
             message: 'Você não pode deixar nenhum campo em branco.'
           });
-        res.redirect("/lpd1");
+        res.redirect("/lpd3");
     }else {
         Lpd3.create({
             nome: nome.toUpperCase(),
@@ -189,7 +196,7 @@ app.post("/deletarlpd1", (req, res) => {
             }
             
         }).then(()=>{
-            res.redirect("/lpd1");
+            res.redirect("/gabaritos");
         });
     }
     
@@ -205,7 +212,7 @@ app.post("/deletarlpd3", (req, res) => {
             }
             
         }).then(()=>{
-            res.redirect("/lpd3");
+            res.redirect("/gabaritos");
         });
     }
     
