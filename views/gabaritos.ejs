@@ -17,7 +17,7 @@
 <div class="container-sm">
     <div class="row">
         <div class="col">
-            <h1 class="display-6 text-center">D1 – Localizar informações explícitas em um texto</h1>            
+            <h3 class="display-6 text-center">D1 – Localizar informações explícitas em um texto</h3>            
         </div>
         <div class="row">
             <div class="col">
@@ -156,7 +156,7 @@
 <div class="container-sm">
     <div class="row">
         <div class="col">
-            <h1 class="display-6 text-center">D3 – Inferir o sentido de uma palavra ou expressão</h1>            
+            <h3 class="display-6 text-center">D3 – Inferir o sentido de uma palavra ou expressão</h3>            
         </div>
         <div class="row">
             <div class="col">
@@ -167,8 +167,7 @@
             </div>
         </div>
     </div>
-    
-    
+        
 </div>
 <div class="container-sm" id="gab_lpd3">
     <table class="table table-bordered table-sm">
@@ -292,6 +291,145 @@
         </table>
 </div>
 
+<div class="container-sm">
+    <div class="row">
+        <div class="col">
+            <h3 class="display-6 text-center">D15 - Reconhecer diferentes formas de tratar uma informação ...</h3>            
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-warning" id="esconder_lpd15">Esconder</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-success" id="mostrar_lpd15">Mostrar</button> 
+            </div>
+        </div>
+    </div>
+        
+</div>
+<div class="container-sm" id="gab_lpd15">
+    <table class="table table-bordered table-sm">
+        <tbody>
+            <tr>
+                <th class="align-middle">NOME</th>
+                <th class="align-middle">Q1</th>
+                <th class="align-middle">Q2</th>
+                <th class="align-middle">Q3</th>
+                <th class="align-middle">Q4</th>
+                <th class="align-middle">Q5</th>
+                <th class="align-middle">Q6</th>
+                <th class="align-middle">Q7</th>
+                <th class="align-middle">Q8</th>
+                <th class="align-middle">Q9</th>
+                <th class="align-middle">Q10</th>
+                <th class="align-middle">NOTA</th>
+                <th class="align-middle">AÇÃO</th>                   
+            </tr>
+            <% lpd15.forEach((lpd15) => { %>
+                   
+                    <tr>
+                        <td class="align-middle text-nowrap"><%= lpd15.nome %></td>
+                        <td class="align-middle">
+                            <%= lpd15.q1 %>
+                            <%
+                                if(lpd15.q1=="A"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd15.q2 %>
+                            <% 
+                                if(lpd15.q2 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd15.q3 %>
+                            <% 
+                                if(lpd15.q3 == "A"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        
+                        <td class="align-middle">
+                            <%= lpd15.q4 %>
+                            <% 
+                                if(lpd15.q4 == "C"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd15.q5 %>
+
+                            <% 
+                                if(lpd15.q5 == "A"){
+                                    total++
+                                }
+                            %>
+                        
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd15.q6 %>
+                            <% 
+                                if(lpd15.q6 == "B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd15.q7 %>
+                            <% 
+                                if(lpd15.q7 == "B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd15.q8 %>
+                            <% 
+                                if(lpd15.q8 == "C"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd15.q9 %>
+                            <% 
+                                if(lpd15.q9 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd15.q10 %>
+                            <% 
+                                if(lpd15.q10 == "A"){
+                                    total++
+                                }
+                            %>
+                        </td>
+
+                        <td class="align-middle"><%= total %></td>
+                        <% total = 0 %>
+
+                        <td class="align-middle">
+                            <form method="POST" action="/deletarlpd15">
+                                <input type="hidden" name="id" value="<%=lpd15.id%>">
+                                <button class="btn btn-danger">Deletar</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+                
+            </tbody>
+        </table>
+</div>
+
+
 </body>
 <script>
     var gabaritolpd1 = document.getElementById('gab_lpd1');
@@ -300,6 +438,10 @@
     var gabaritolpd3 = document.getElementById('gab_lpd3');
     var btn_esconde_gab_lpd3 = document.getElementById('esconder_lpd3');
     var btn_mostra_gab_lpd3 = document.getElementById('mostrar_lpd3');
+    var gabaritolpd15 = document.getElementById('gab_lpd15');
+    var btn_esconde_gab_lpd15 = document.getElementById('esconder_lpd15');
+    var btn_mostra_gab_lpd15 = document.getElementById('mostrar_lpd15');
+   
    
     btn_esconde_gab_lpd1.addEventListener('click', function() {
         gabaritolpd1.style.display = 'none';
@@ -315,6 +457,14 @@
 
     btn_mostra_gab_lpd3.addEventListener('click', function() {
         gabaritolpd3.style.display = 'block';
+    });
+
+    btn_esconde_gab_lpd15.addEventListener('click', function() {
+        gabaritolpd15.style.display = 'none';
+    });
+
+    btn_mostra_gab_lpd15.addEventListener('click', function() {
+        gabaritolpd15.style.display = 'block';
     });
 </script>
 
