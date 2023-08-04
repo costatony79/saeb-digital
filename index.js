@@ -48,7 +48,7 @@ app.get("/gabaritos", (req, res) => {
     var total = 0;
     var lpdescritor3, lpdescritor15;
     
-    Lpd3.findAll({order: [['nome', 'ASC']]}).then(lpd15 => {
+    Lpd15.findAll({order: [['nome', 'ASC']]}).then(lpd15 => {
         lpdescritor15 = lpd15;
     });
 
