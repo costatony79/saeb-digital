@@ -11,9 +11,10 @@
 <body>
 <hr>
 <div class="container-sm">
-    <div class="h1 text-center">JULHO - AGOSTO</div>
+    <div class="h1 text-center bg-primary text-light">JULHO - AGOSTO</div>
 </div>
 <hr>
+<h1 class="text-center display-5">Língua Portuguesa</h1>
 <div class="container-sm">
     <div class="row">
         <div class="col">
@@ -428,8 +429,144 @@
             </tbody>
         </table>
 </div>
+<h1 class="text-center display-5">Matemática</h1>
+<div class="container-sm">
+    <div class="row">
+        <div class="col">
+            <h3 class="display-6 text-center">D18 - Calcular o resultado de uma multiplicação ou divisão de números naturais.</h3>            
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-warning" id="esconder_matd18">Esconder</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-success" id="mostrar_matd18">Mostrar</button> 
+            </div>
+        </div>
+    </div>
+        
+</div>
+<div class="container-sm" id="gab_matd18">
+    <table class="table table-bordered table-sm">
+        <tbody>
+            <tr>
+                <th class="align-middle">NOME</th>
+                <th class="align-middle">Q1</th>
+                <th class="align-middle">Q2</th>
+                <th class="align-middle">Q3</th>
+                <th class="align-middle">Q4</th>
+                <th class="align-middle">Q5</th>
+                <th class="align-middle">Q6</th>
+                <th class="align-middle">Q7</th>
+                <th class="align-middle">Q8</th>
+                <th class="align-middle">Q9</th>
+                <th class="align-middle">Q10</th>
+                <th class="align-middle">NOTA</th>
+                <th class="align-middle">AÇÃO</th>                   
+            </tr>
+            <% matd18.forEach((matd18) => { %>
+                   
+                    <tr>
+                        <td class="align-middle text-nowrap"><%= matd18.nome %></td>
+                        <td class="align-middle">
+                            <%= matd18.q1 %>
+                            <%
+                                if(matd18.q1=="C"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd18.q2 %>
+                            <% 
+                                if(matd18.q2 == "B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd18.q3 %>
+                            <% 
+                                if(matd18.q3 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        
+                        <td class="align-middle">
+                            <%= matd18.q4 %>
+                            <% 
+                                if(matd18.q4 == "A"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd18.q5 %>
 
+                            <% 
+                                if(matd18.q5 == "A"){
+                                    total++
+                                }
+                            %>
+                        
+                        </td>
+                        <td class="align-middle">
+                            <%= matd18.q6 %>
+                            <% 
+                                if(matd18.q6 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd18.q7 %>
+                            <% 
+                                if(matd18.q7 == "A"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd18.q8 %>
+                            <% 
+                                if(matd18.q8 == "B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd18.q9 %>
+                            <% 
+                                if(matd18.q9 == "C"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd18.q10 %>
+                            <% 
+                                if(matd18.q10 == "A"){
+                                    total++
+                                }
+                            %>
+                        </td>
 
+                        <td class="align-middle"><%= total %></td>
+                        <% total = 0 %>
+
+                        <td class="align-middle">
+                            <form method="POST" action="/deletarmatd18">
+                                <input type="hidden" name="id" value="<%=matd18.id%>">
+                                <button class="btn btn-danger">Deletar</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+                
+            </tbody>
+        </table>
+</div>
 </body>
 <script>
     var gabaritolpd1 = document.getElementById('gab_lpd1');
@@ -441,6 +578,10 @@
     var gabaritolpd15 = document.getElementById('gab_lpd15');
     var btn_esconde_gab_lpd15 = document.getElementById('esconder_lpd15');
     var btn_mostra_gab_lpd15 = document.getElementById('mostrar_lpd15');
+    var gabaritomatd18 = document.getElementById('gab_matd18');
+    var btn_esconde_gab_matd18 = document.getElementById('esconder_matd18');
+    var btn_mostra_gab_matd18 = document.getElementById('mostrar_matd18');
+   
    
    
     btn_esconde_gab_lpd1.addEventListener('click', function() {
@@ -465,6 +606,14 @@
 
     btn_mostra_gab_lpd15.addEventListener('click', function() {
         gabaritolpd15.style.display = 'block';
+    });
+
+    btn_esconde_gab_matd18.addEventListener('click', function() {
+        gabaritomatd18.style.display = 'none';
+    });
+
+    btn_mostra_gab_matd18.addEventListener('click', function() {
+        gabaritomatd18.style.display = 'block';
     });
 </script>
 

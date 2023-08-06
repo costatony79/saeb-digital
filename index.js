@@ -17,7 +17,7 @@ const Lpd3 = require("./database/Lpd3");
 //model do BD para receber as respostas do gabarito de LPD15
 const Lpd15 = require("./database/Lpd15");
 
-//model do BD para receber as respostas do gabarito de LPD15
+//model do BD para receber as respostas do gabarito de MATD18
 const Matd18 = require("./database/Matd18");
 
 
@@ -50,6 +50,10 @@ app.get("/", (req, res) => {
 app.get("/gabaritos", (req, res) => {
     var total = 0;
     var lpdescritor3, lpdescritor15, matdescritor18;
+
+    Matd18.findAll({order: [['nome', 'ASC']]}).then(matd18 => {
+        matdescritor18 = matd18;
+    });
     
     Lpd15.findAll({order: [['nome', 'ASC']]}).then(lpd15 => {
         lpdescritor15 = lpd15;
@@ -282,7 +286,7 @@ app.post("/gabarito_matd18", (req, res) => {
           });
         res.redirect("/matd18");
     }else {
-        Lpd15.create({
+        Matd18.create({
             nome: nome.toUpperCase(),
             q1: q1,
             q2: q2,
