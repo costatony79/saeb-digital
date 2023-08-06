@@ -567,6 +567,144 @@
             </tbody>
         </table>
 </div>
+
+<div class="container-sm">
+    <div class="row">
+        <div class="col">
+            <h3 class="display-6 text-center">D19 - Resolver problema com números naturais, envolvendo diferentes...</h3>            
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-warning" id="esconder_matd19">Esconder</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-success" id="mostrar_matd19">Mostrar</button> 
+            </div>
+        </div>
+    </div>
+        
+</div>
+<div class="container-sm" id="gab_matd19">
+    <table class="table table-bordered table-sm">
+        <tbody>
+            <tr>
+                <th class="align-middle">NOME</th>
+                <th class="align-middle">Q1</th>
+                <th class="align-middle">Q2</th>
+                <th class="align-middle">Q3</th>
+                <th class="align-middle">Q4</th>
+                <th class="align-middle">Q5</th>
+                <th class="align-middle">Q6</th>
+                <th class="align-middle">Q7</th>
+                <th class="align-middle">Q8</th>
+                <th class="align-middle">Q9</th>
+                <th class="align-middle">Q10</th>
+                <th class="align-middle">NOTA</th>
+                <th class="align-middle">AÇÃO</th>                   
+            </tr>
+            <% matd19.forEach((matd19) => { %>
+                   
+                    <tr>
+                        <td class="align-middle text-nowrap"><%= matd19.nome %></td>
+                        <td class="align-middle">
+                            <%= matd19.q1 %>
+                            <%
+                                if(matd19.q1=="B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd19.q2 %>
+                            <% 
+                                if(matd19.q2 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd19.q3 %>
+                            <% 
+                                if(matd19.q3 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        
+                        <td class="align-middle">
+                            <%= matd19.q4 %>
+                            <% 
+                                if(matd19.q4 == "A"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd19.q5 %>
+
+                            <% 
+                                if(matd19.q5 == "D"){
+                                    total++
+                                }
+                            %>
+                        
+                        </td>
+                        <td class="align-middle">
+                            <%= matd19.q6 %>
+                            <% 
+                                if(matd19.q6 == "C"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd19.q7 %>
+                            <% 
+                                if(matd19.q7 == "B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd19.q8 %>
+                            <% 
+                                if(matd19.q8 == "C"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd19.q9 %>
+                            <% 
+                                if(matd19.q9 == "A"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd19.q10 %>
+                            <% 
+                                if(matd19.q10 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+
+                        <td class="align-middle"><%= total %></td>
+                        <% total = 0 %>
+
+                        <td class="align-middle">
+                            <form method="POST" action="/deletarmatd19">
+                                <input type="hidden" name="id" value="<%=matd19.id%>">
+                                <button class="btn btn-danger">Deletar</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+                
+            </tbody>
+        </table>
+</div>
 </body>
 <script>
     var gabaritolpd1 = document.getElementById('gab_lpd1');
@@ -581,6 +719,9 @@
     var gabaritomatd18 = document.getElementById('gab_matd18');
     var btn_esconde_gab_matd18 = document.getElementById('esconder_matd18');
     var btn_mostra_gab_matd18 = document.getElementById('mostrar_matd18');
+    var gabaritomatd19 = document.getElementById('gab_matd19');
+    var btn_esconde_gab_matd19 = document.getElementById('esconder_matd19');
+    var btn_mostra_gab_matd19 = document.getElementById('mostrar_matd19');
    
    
    
@@ -614,6 +755,14 @@
 
     btn_mostra_gab_matd18.addEventListener('click', function() {
         gabaritomatd18.style.display = 'block';
+    });
+
+    btn_esconde_gab_matd19.addEventListener('click', function() {
+        gabaritomatd19.style.display = 'none';
+    });
+
+    btn_mostra_gab_matd19.addEventListener('click', function() {
+        gabaritomatd19.style.display = 'block';
     });
 </script>
 

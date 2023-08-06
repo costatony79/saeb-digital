@@ -20,6 +20,9 @@ const Lpd15 = require("./database/Lpd15");
 //model do BD para receber as respostas do gabarito de MATD18
 const Matd18 = require("./database/Matd18");
 
+//model do BD para receber as respostas do gabarito de MATD19
+const Matd19 = require("./database/Matd19");
+
 
 //Conexão com o banco de dados
 connection
@@ -49,7 +52,11 @@ app.get("/", (req, res) => {
 //rota para exibição da página com todos os gabaritos
 app.get("/gabaritos", (req, res) => {
     var total = 0;
-    var lpdescritor3, lpdescritor15, matdescritor18;
+    var lpdescritor3, lpdescritor15, matdescritor18, matdescritor19;
+
+    Matd19.findAll({order: [['nome', 'ASC']]}).then(matd19 => {
+        matdescritor19 = matd19;
+    });
 
     Matd18.findAll({order: [['nome', 'ASC']]}).then(matd18 => {
         matdescritor18 = matd18;
@@ -69,7 +76,9 @@ app.get("/gabaritos", (req, res) => {
             lpd1: lpd1 ,
             lpd3: lpdescritor3,
             lpd15: lpdescritor15,
-            matd18: matdescritor18
+            matd18: matdescritor18,
+            matd19: matdescritor19
+
         }); 
     });
 });
@@ -92,6 +101,11 @@ app.get("/lpd15", (req, res) => {
 //rota para a página das questões de MATD18
 app.get("/matd18", (req, res) => {
     res.render("matd18");
+});
+
+//rota para a página das questões de MATD19
+app.get("/matd19", (req, res) => {
+    res.render("matd19");
 });
 
 // ROTAS PARA ENVIO DOS GABARITOS
@@ -320,6 +334,62 @@ app.post("/gabarito_matd18", (req, res) => {
     }
 });
 
+//rota para envio do gabarito de MATD19
+app.post("/gabarito_matd19", (req, res) => {
+    var nome = req.body.name;
+    var q1 = req.body.q1;
+    var q2 = req.body.q2;
+    var q3 = req.body.q3;
+    var q4 = req.body.q4;
+    var q5 = req.body.q5;
+    var q6 = req.body.q6;
+    var q7 = req.body.q7;
+    var q8 = req.body.q8;
+    var q9 = req.body.q9;
+    var q10 = req.body.q10;
+    
+    if(nome==""||q1==null||q2==null||q3==null||q4==null||q5==null||q6==null
+    ||q7==null||q8==null||q9==null||q10==null){
+        notifier.notify({
+            title: 'RESPONDA TODAS AS PERGUNTAS',
+            message: 'Você não pode deixar nenhum campo em branco.'
+          });
+        res.redirect("/matd18");
+    }else {
+        Matd19.create({
+            nome: nome.toUpperCase(),
+            q1: q1,
+            q2: q2,
+            q3: q3,
+            q4: q4,
+            q5: q5,
+            q6: q6,
+            q7: q7,
+            q8: q8,
+            q9: q9,
+            q10: q10
+        }).then(() => {
+            notifier.notify({
+                title: 'GABARITO SALVO COM SUCESSO',
+                message: 'Parabéns você preencheu tudo.'
+              });
+              res.render("confirmacao", {
+                nome: nome,
+                q1: q1,
+                q2: q2,
+                q3: q3,
+                q4: q4,
+                q5: q5,
+                q6: q6,
+                q7: q7,
+                q8: q8,
+                q9: q9,
+                q10: q10
+            });
+        });
+    }
+});
+
 // ROTAS PARA APAGAR REGISTROS NO BANCO DE DADOS
 //*************************************************************************************** */
 
@@ -371,7 +441,7 @@ app.post("/deletarlpd15", (req, res) => {
     
     });
 
-//rota para apagar um registro da tabela de LPD15
+//rota para apagar um registro da tabela de MATD18
 app.post("/deletarmatd18", (req, res) => {
     var id = req.body.id;
     if(id != undefined){
@@ -385,7 +455,27 @@ app.post("/deletarmatd18", (req, res) => {
         });
     }
     
-    });    
+    }); 
+
+//rota para apagar um registro da tabela de MATD19
+app.post("/deletarmatd19", (req, res) => {
+    var id = req.body.id;
+    if(id != undefined){
+        Matd19.destroy({
+            where: {
+                id: id
+            }
+            
+        }).then(()=>{
+            res.redirect("/gabaritos");
+        });
+    }
+    
+    }); 
+    
+    
+
+
 //servidor
 app.listen(1519, ()=>{
     console.log("SAEB DIGITAL SENDO EXECUTADO NA PORTA 1519");
