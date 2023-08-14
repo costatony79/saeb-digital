@@ -23,6 +23,8 @@ const Matd18 = require("./database/Matd18");
 //model do BD para receber as respostas do gabarito de MATD19
 const Matd19 = require("./database/Matd19");
 
+//model do BD para receber as respostas do gabarito de MATD20
+const Matd20 = require("./database/Matd20");
 
 //Conexão com o banco de dados
 connection
@@ -52,7 +54,11 @@ app.get("/", (req, res) => {
 //rota para exibição da página com todos os gabaritos
 app.get("/gabaritos", (req, res) => {
     var total = 0;
-    var lpdescritor3, lpdescritor15, matdescritor18, matdescritor19;
+    var lpdescritor3, lpdescritor15, matdescritor18, matdescritor19, matdescritor20;
+    
+    Matd20.findAll({order: [['nome', 'ASC']]}).then(matd20 => {
+        matdescritor20 = matd20;
+    });
 
     Matd19.findAll({order: [['nome', 'ASC']]}).then(matd19 => {
         matdescritor19 = matd19;
@@ -77,7 +83,8 @@ app.get("/gabaritos", (req, res) => {
             lpd3: lpdescritor3,
             lpd15: lpdescritor15,
             matd18: matdescritor18,
-            matd19: matdescritor19
+            matd19: matdescritor19,
+            matd20: matdescritor20
 
         }); 
     });
@@ -106,6 +113,11 @@ app.get("/matd18", (req, res) => {
 //rota para a página das questões de MATD19
 app.get("/matd19", (req, res) => {
     res.render("matd19");
+});
+
+//rota para a página das questões de MATD19
+app.get("/matd20", (req, res) => {
+    res.render("matd20");
 });
 
 // ROTAS PARA ENVIO DOS GABARITOS
@@ -354,9 +366,65 @@ app.post("/gabarito_matd19", (req, res) => {
             title: 'RESPONDA TODAS AS PERGUNTAS',
             message: 'Você não pode deixar nenhum campo em branco.'
           });
-        res.redirect("/matd18");
+        res.redirect("/matd19");
     }else {
         Matd19.create({
+            nome: nome.toUpperCase(),
+            q1: q1,
+            q2: q2,
+            q3: q3,
+            q4: q4,
+            q5: q5,
+            q6: q6,
+            q7: q7,
+            q8: q8,
+            q9: q9,
+            q10: q10
+        }).then(() => {
+            notifier.notify({
+                title: 'GABARITO SALVO COM SUCESSO',
+                message: 'Parabéns você preencheu tudo.'
+              });
+              res.render("confirmacao", {
+                nome: nome,
+                q1: q1,
+                q2: q2,
+                q3: q3,
+                q4: q4,
+                q5: q5,
+                q6: q6,
+                q7: q7,
+                q8: q8,
+                q9: q9,
+                q10: q10
+            });
+        });
+    }
+});
+
+//rota para envio do gabarito de MATD20
+app.post("/gabarito_matd20", (req, res) => {
+    var nome = req.body.name;
+    var q1 = req.body.q1;
+    var q2 = req.body.q2;
+    var q3 = req.body.q3;
+    var q4 = req.body.q4;
+    var q5 = req.body.q5;
+    var q6 = req.body.q6;
+    var q7 = req.body.q7;
+    var q8 = req.body.q8;
+    var q9 = req.body.q9;
+    var q10 = req.body.q10;
+    
+    if(nome==""||q1==null||q2==null||q3==null||q4==null||q5==null||q6==null
+    ||q7==null||q8==null||q9==null||q10==null){
+        notifier.notify({
+            title: 'RESPONDA TODAS AS PERGUNTAS',
+            message: 'Você não pode deixar nenhum campo em branco.'
+          });
+        res.redirect("/matd20");
+    }else {
+        Matd20.create({
             nome: nome.toUpperCase(),
             q1: q1,
             q2: q2,
@@ -462,6 +530,21 @@ app.post("/deletarmatd19", (req, res) => {
     var id = req.body.id;
     if(id != undefined){
         Matd19.destroy({
+            where: {
+                id: id
+            }
+            
+        }).then(()=>{
+            res.redirect("/gabaritos");
+        });
+    }
+    
+    }); 
+//rota para apagar um registro da tabela de MATD20
+app.post("/deletarmatd20", (req, res) => {
+    var id = req.body.id;
+    if(id != undefined){
+        Matd20.destroy({
             where: {
                 id: id
             }
