@@ -705,6 +705,144 @@
             </tbody>
         </table>
 </div>
+
+<div class="container-sm">
+    <div class="row">
+        <div class="col">
+            <h3 class="display-6 text-center">D20 - Resolver problema com números naturais, envolvendo diferentes...</h3>            
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-warning" id="esconder_matd20">Esconder</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-success" id="mostrar_matd20">Mostrar</button> 
+            </div>
+        </div>
+    </div>
+        
+</div>
+<div class="container-sm" id="gab_matd20">
+    <table class="table table-bordered table-sm">
+        <tbody>
+            <tr>
+                <th class="align-middle">NOME</th>
+                <th class="align-middle">Q1</th>
+                <th class="align-middle">Q2</th>
+                <th class="align-middle">Q3</th>
+                <th class="align-middle">Q4</th>
+                <th class="align-middle">Q5</th>
+                <th class="align-middle">Q6</th>
+                <th class="align-middle">Q7</th>
+                <th class="align-middle">Q8</th>
+                <th class="align-middle">Q9</th>
+                <th class="align-middle">Q10</th>
+                <th class="align-middle">NOTA</th>
+                <th class="align-middle">AÇÃO</th>                   
+            </tr>
+            <% matd20.forEach((matd20) => { %>
+                   
+                    <tr>
+                        <td class="align-middle text-nowrap"><%= matd20.nome %></td>
+                        <td class="align-middle">
+                            <%= matd20.q1 %>
+                            <%
+                                if(matd20.q1=="A"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd20.q2 %>
+                            <% 
+                                if(matd20.q2 == "B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd20.q3 %>
+                            <% 
+                                if(matd20.q3 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        
+                        <td class="align-middle">
+                            <%= matd20.q4 %>
+                            <% 
+                                if(matd20.q4 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd20.q5 %>
+
+                            <% 
+                                if(matd20.q5 == "C"){
+                                    total++
+                                }
+                            %>
+                        
+                        </td>
+                        <td class="align-middle">
+                            <%= matd20.q6 %>
+                            <% 
+                                if(matd20.q6 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd20.q7 %>
+                            <% 
+                                if(matd20.q7 == "C"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd20.q8 %>
+                            <% 
+                                if(matd20.q8 == "B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd20.q9 %>
+                            <% 
+                                if(matd20.q9 == "C"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= matd20.q10 %>
+                            <% 
+                                if(matd20.q10 == "C"){
+                                    total++
+                                }
+                            %>
+                        </td>
+
+                        <td class="align-middle"><%= total %></td>
+                        <% total = 0 %>
+
+                        <td class="align-middle">
+                            <form method="POST" action="/deletarmatd20">
+                                <input type="hidden" name="id" value="<%=matd20.id%>">
+                                <button class="btn btn-danger">Deletar</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+                
+            </tbody>
+        </table>
+</div>
 </body>
 <script>
     var gabaritolpd1 = document.getElementById('gab_lpd1');
