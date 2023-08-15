@@ -843,6 +843,141 @@
             </tbody>
         </table>
 </div>
+
+<div class="row">
+    <div class="col">
+        <h3 class="display-6 text-center">D21 - Identificar diferentes representações de um mesmo número racional.</h3>            
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-warning" id="esconder_matd21">Esconder</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" id="mostrar_matd21">Mostrar</button> 
+        </div>
+    </div>
+</div>
+<div class="container-sm" id="gab_matd21">
+<table class="table table-bordered table-sm">
+    <tbody>
+        <tr>
+            <th class="align-middle">NOME</th>
+            <th class="align-middle">Q1</th>
+            <th class="align-middle">Q2</th>
+            <th class="align-middle">Q3</th>
+            <th class="align-middle">Q4</th>
+            <th class="align-middle">Q5</th>
+            <th class="align-middle">Q6</th>
+            <th class="align-middle">Q7</th>
+            <th class="align-middle">Q8</th>
+            <th class="align-middle">Q9</th>
+            <th class="align-middle">Q10</th>
+            <th class="align-middle">NOTA</th>
+            <th class="align-middle">AÇÃO</th>                   
+        </tr>
+        <% matd21.forEach((matd21) => { %>
+               
+                <tr>
+                    <td class="align-middle text-nowrap"><%= matd21.nome %></td>
+                    <td class="align-middle">
+                        <%= matd21.q1 %>
+                        <%
+                            if(matd21.q1=="A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd21.q2 %>
+                        <% 
+                            if(matd21.q2 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd21.q3 %>
+                        <% 
+                            if(matd21.q3 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    
+                    <td class="align-middle">
+                        <%= matd21.q4 %>
+                        <% 
+                            if(matd21.q4 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd21.q5 %>
+
+                        <% 
+                            if(matd21.q5 == "C"){
+                                total++
+                            }
+                        %>
+                    
+                    </td>
+                    <td class="align-middle">
+                        <%= matd21.q6 %>
+                        <% 
+                            if(matd21.q6 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd21.q7 %>
+                        <% 
+                            if(matd21.q7 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd21.q8 %>
+                        <% 
+                            if(matd21.q8 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd21.q9 %>
+                        <% 
+                            if(matd21.q9 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd21.q10 %>
+                        <% 
+                            if(matd21.q10 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+
+                    <td class="align-middle"><%= total %></td>
+                    <% total = 0 %>
+
+                    <td class="align-middle">
+                        <form method="POST" action="/deletarmatd21">
+                            <input type="hidden" name="id" value="<%=matd21.id%>">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+            
+        </tbody>
+    </table>
+</div>
 </body>
 <script>
     var gabaritolpd1 = document.getElementById('gab_lpd1');
@@ -860,6 +995,12 @@
     var gabaritomatd19 = document.getElementById('gab_matd19');
     var btn_esconde_gab_matd19 = document.getElementById('esconder_matd19');
     var btn_mostra_gab_matd19 = document.getElementById('mostrar_matd19');
+    var gabaritomatd20 = document.getElementById('gab_matd20');
+    var btn_esconde_gab_matd20 = document.getElementById('esconder_matd20');
+    var btn_mostra_gab_matd20 = document.getElementById('mostrar_matd20');
+    var gabaritomatd21 = document.getElementById('gab_matd21');
+    var btn_esconde_gab_matd21 = document.getElementById('esconder_matd21');
+    var btn_mostra_gab_matd21 = document.getElementById('mostrar_matd21');
    
    
    
@@ -901,6 +1042,22 @@
 
     btn_mostra_gab_matd19.addEventListener('click', function() {
         gabaritomatd19.style.display = 'block';
+    });
+
+    btn_esconde_gab_matd20.addEventListener('click', function() {
+        gabaritomatd20.style.display = 'none';
+    });
+
+    btn_mostra_gab_matd20.addEventListener('click', function() {
+        gabaritomatd20.style.display = 'block';
+    });
+
+    btn_esconde_gab_matd21.addEventListener('click', function() {
+        gabaritomatd21.style.display = 'none';
+    });
+
+    btn_mostra_gab_matd21.addEventListener('click', function() {
+        gabaritomatd21.style.display = 'block';
     });
 </script>
 
