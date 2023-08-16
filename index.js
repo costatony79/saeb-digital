@@ -26,8 +26,11 @@ const Matd19 = require("./database/Matd19");
 //model do BD para receber as respostas do gabarito de MATD20
 const Matd20 = require("./database/Matd20");
 
-//model do BD para receber as respostas do gabarito de MATD20
+//model do BD para receber as respostas do gabarito de MATD21
 const Matd21 = require("./database/Matd21");
+
+//model do BD para receber as respostas do gabarito de MATD22
+const Matd22 = require("./database/Matd22");
 
 //Conexão com o banco de dados
 connection
@@ -57,8 +60,12 @@ app.get("/", (req, res) => {
 //rota para exibição da página com todos os gabaritos
 app.get("/gabaritos", (req, res) => {
     var total = 0;
-    var lpdescritor3, lpdescritor15, matdescritor18, matdescritor19, matdescritor20, matdescritor21;
+    var lpdescritor3, lpdescritor15, matdescritor18, matdescritor19, matdescritor20, matdescritor21,  matdescritor22;
     
+    Matd22.findAll({order: [['nome', 'ASC']]}).then(matd22 => {
+        matdescritor22 = matd22;
+    });
+
     Matd21.findAll({order: [['nome', 'ASC']]}).then(matd21 => {
         matdescritor21 = matd21;
     });
@@ -92,7 +99,8 @@ app.get("/gabaritos", (req, res) => {
             matd18: matdescritor18,
             matd19: matdescritor19,
             matd20: matdescritor20,
-            matd21: matdescritor21
+            matd21: matdescritor21,
+            matd22: matdescritor22
 
         }); 
     });
@@ -131,6 +139,11 @@ app.get("/matd20", (req, res) => {
 //rota para a página das questões de MATD21
 app.get("/matd21", (req, res) => {
     res.render("matd21");
+});
+
+//rota para a página das questões de MATD22
+app.get("/matd22", (req, res) => {
+    res.render("matd22");
 });
 
 // ROTAS PARA ENVIO DOS GABARITOS
@@ -527,6 +540,62 @@ app.post("/gabarito_matd21", (req, res) => {
     }
 });
 
+//rota para envio do gabarito de MATD21
+app.post("/gabarito_matd22", (req, res) => {
+    var nome = req.body.name;
+    var q1 = req.body.q1;
+    var q2 = req.body.q2;
+    var q3 = req.body.q3;
+    var q4 = req.body.q4;
+    var q5 = req.body.q5;
+    var q6 = req.body.q6;
+    var q7 = req.body.q7;
+    var q8 = req.body.q8;
+    var q9 = req.body.q9;
+    var q10 = req.body.q10;
+    
+    if(nome==""||q1==null||q2==null||q3==null||q4==null||q5==null||q6==null
+    ||q7==null||q8==null||q9==null||q10==null){
+        notifier.notify({
+            title: 'RESPONDA TODAS AS PERGUNTAS',
+            message: 'Você não pode deixar nenhum campo em branco.'
+          });
+        res.redirect("/matd22");
+    }else {
+        Matd22.create({
+            nome: nome.toUpperCase(),
+            q1: q1,
+            q2: q2,
+            q3: q3,
+            q4: q4,
+            q5: q5,
+            q6: q6,
+            q7: q7,
+            q8: q8,
+            q9: q9,
+            q10: q10
+        }).then(() => {
+            notifier.notify({
+                title: 'GABARITO SALVO COM SUCESSO',
+                message: 'Parabéns você preencheu tudo.'
+              });
+              res.render("confirmacao", {
+                nome: nome,
+                q1: q1,
+                q2: q2,
+                q3: q3,
+                q4: q4,
+                q5: q5,
+                q6: q6,
+                q7: q7,
+                q8: q8,
+                q9: q9,
+                q10: q10
+            });
+        });
+    }
+});
+
 // ROTAS PARA APAGAR REGISTROS NO BANCO DE DADOS
 //*************************************************************************************** */
 
@@ -639,7 +708,22 @@ app.post("/deletarmatd21", (req, res) => {
     }
     
     }); 
+
+    //rota para apagar um registro da tabela de MATD22
+app.post("/deletarmatd22", (req, res) => {
+    var id = req.body.id;
+    if(id != undefined){
+        Matd21.destroy({
+            where: {
+                id: id
+            }
+            
+        }).then(()=>{
+            res.redirect("/gabaritos");
+        });
+    }
     
+    }); 
     
 
 
