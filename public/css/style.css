@@ -50,3 +50,6 @@ input[type=radio], input[type=checkbox]  {
 #temporizador{
     position: fixed;
 }
+sub, sup {
+	font-size: 1em;
+}
