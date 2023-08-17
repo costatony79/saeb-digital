@@ -713,7 +713,7 @@ app.post("/deletarmatd21", (req, res) => {
 app.post("/deletarmatd22", (req, res) => {
     var id = req.body.id;
     if(id != undefined){
-        Matd21.destroy({
+        Matd22.destroy({
             where: {
                 id: id
             }

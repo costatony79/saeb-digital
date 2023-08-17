@@ -978,6 +978,145 @@
         </tbody>
     </table>
 </div>
+
+<div class="row">
+    <div class="col">
+        <h3 class="display-6 text-center">D22 - Identificar a localização de números racionais representados na
+            forma decimal na reta numérica.
+           </h3>            
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-warning" id="esconder_matd22">Esconder</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" id="mostrar_matd22">Mostrar</button> 
+        </div>
+    </div>
+</div>
+<div class="container-sm" id="gab_matd22">
+<table class="table table-bordered table-sm">
+    <tbody>
+        <tr>
+            <th class="align-middle">NOME</th>
+            <th class="align-middle">Q1</th>
+            <th class="align-middle">Q2</th>
+            <th class="align-middle">Q3</th>
+            <th class="align-middle">Q4</th>
+            <th class="align-middle">Q5</th>
+            <th class="align-middle">Q6</th>
+            <th class="align-middle">Q7</th>
+            <th class="align-middle">Q8</th>
+            <th class="align-middle">Q9</th>
+            <th class="align-middle">Q10</th>
+            <th class="align-middle">NOTA</th>
+            <th class="align-middle">AÇÃO</th>                   
+        </tr>
+        <% matd22.forEach((matd22) => { %>
+               
+                <tr>
+                    <td class="align-middle text-nowrap"><%= matd22.nome %></td>
+                    <td class="align-middle">
+                        <%= matd22.q1 %>
+                        <%
+                            if(matd22.q1=="D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd22.q2 %>
+                        <% 
+                            if(matd22.q2 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd22.q3 %>
+                        <% 
+                            if(matd22.q3 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    
+                    <td class="align-middle">
+                        <%= matd22.q4 %>
+                        <% 
+                            if(matd22.q4 == "A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd22.q5 %>
+
+                        <% 
+                            if(matd22.q5 == "A"){
+                                total++
+                            }
+                        %>
+                    
+                    </td>
+                    <td class="align-middle">
+                        <%= matd22.q6 %>
+                        <% 
+                            if(matd22.q6 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd22.q7 %>
+                        <% 
+                            if(matd22.q7 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd22.q8 %>
+                        <% 
+                            if(matd22.q8 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd22.q9 %>
+                        <% 
+                            if(matd22.q9 == "A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd22.q10 %>
+                        <% 
+                            if(matd22.q10 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+
+                    <td class="align-middle"><%= total %></td>
+                    <% total = 0 %>
+
+                    <td class="align-middle">
+                        <form method="POST" action="/deletarmatd22">
+                            <input type="hidden" name="id" value="<%=matd22.id%>">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+            
+        </tbody>
+    </table>
+</div>
+
+
 </body>
 <script>
     var gabaritolpd1 = document.getElementById('gab_lpd1');
@@ -1001,6 +1140,9 @@
     var gabaritomatd21 = document.getElementById('gab_matd21');
     var btn_esconde_gab_matd21 = document.getElementById('esconder_matd21');
     var btn_mostra_gab_matd21 = document.getElementById('mostrar_matd21');
+    var gabaritomatd22 = document.getElementById('gab_matd22');
+    var btn_esconde_gab_matd22 = document.getElementById('esconder_matd22');
+    var btn_mostra_gab_matd22 = document.getElementById('mostrar_matd22');
    
    
    
@@ -1058,6 +1200,14 @@
 
     btn_mostra_gab_matd21.addEventListener('click', function() {
         gabaritomatd21.style.display = 'block';
+    });
+
+    btn_esconde_gab_matd22.addEventListener('click', function() {
+        gabaritomatd22.style.display = 'none';
+    });
+
+    btn_mostra_gab_matd22.addEventListener('click', function() {
+        gabaritomatd22.style.display = 'block';
     });
 </script>
 
