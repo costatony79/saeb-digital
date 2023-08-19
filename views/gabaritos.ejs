@@ -292,6 +292,7 @@
         </table>
 </div>
 
+<%// GABARITO E IDENTIFICAÇÃO LPD15  %>
 <div class="container-sm">
     <div class="row">
         <div class="col">
@@ -429,6 +430,149 @@
             </tbody>
         </table>
 </div>
+
+<%// GABARITO E IDENTIFICAÇÃO LPD8  %>
+<div class="container-sm">
+    <div class="row">
+        <div class="col">
+            <h3 class="display-6 text-center">D8 -  Estabelecer relação  causa/consequência entre partes e elementos do texto.</h3>            
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-warning" id="esconder_lpd8">Esconder</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-success" id="mostrar_lpd8">Mostrar</button> 
+            </div>
+        </div>
+    </div>
+        
+</div>
+<div class="container-sm" id="gab_lpd8">
+    <table class="table table-bordered table-sm">
+        <tbody>
+            <tr>
+                <th class="align-middle">NOME</th>
+                <th class="align-middle">Q1</th>
+                <th class="align-middle">Q2</th>
+                <th class="align-middle">Q3</th>
+                <th class="align-middle">Q4</th>
+                <th class="align-middle">Q5</th>
+                <th class="align-middle">Q6</th>
+                <th class="align-middle">Q7</th>
+                <th class="align-middle">Q8</th>
+                <th class="align-middle">Q9</th>
+                <th class="align-middle">Q10</th>
+                <th class="align-middle">NOTA</th>
+                <th class="align-middle">AÇÃO</th>                   
+            </tr>
+            <% lpd8.forEach((lpd8) => { %>
+                   
+                    <tr>
+                        <td class="align-middle text-nowrap"><%= lpd8.nome %></td>
+                        <td class="align-middle">
+                            <%= lpd8.q1 %>
+                            <%
+                                if(lpd8.q1=="C"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd8.q2 %>
+                            <% 
+                                if(lpd8.q2 == "B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd8.q3 %>
+                            <% 
+                                if(lpd8.q3 == "C"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        
+                        <td class="align-middle">
+                            <%= lpd8.q4 %>
+                            <% 
+                                if(lpd8.q4 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd8.q5 %>
+
+                            <% 
+                                if(lpd8.q5 == "B"){
+                                    total++
+                                }
+                            %>
+                        
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd8.q6 %>
+                            <% 
+                                if(lpd8.q6 == "A"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd8.q7 %>
+                            <% 
+                                if(lpd8.q7 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd8.q8 %>
+                            <% 
+                                if(lpd8.q8 == "A"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd8.q9 %>
+                            <% 
+                                if(lpd8.q9 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd8.q10 %>
+                            <% 
+                                if(lpd8.q10 == "C"){
+                                    total++
+                                }
+                            %>
+                        </td>
+
+                        <td class="align-middle"><%= total %></td>
+                        <% total = 0 %>
+
+                        <td class="align-middle">
+                            <form method="POST" action="/deletarlpd8">
+                                <input type="hidden" name="id" value="<%=lpd8.id%>">
+                                <button class="btn btn-danger">Deletar</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+                
+            </tbody>
+        </table>
+</div>
+
+
+<% // Todos os gabaritos de Matemática %>
+
 <h1 class="text-center display-5">Matemática</h1>
 <div class="container-sm">
     <div class="row">
