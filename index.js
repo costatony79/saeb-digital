@@ -35,6 +35,10 @@ const Matd22 = require("./database/Matd22");
 //model do BD para receber as respostas do gabarito de LPD8
 const Lpd8 = require("./database/Lpd8");
 
+//model do BD para receber as respostas do gabarito de LPD10
+const Lpd10 = require("./database/Lpd10");
+
+
 //Conexão com o banco de dados
 connection
     .authenticate()
@@ -63,8 +67,12 @@ app.get("/", (req, res) => {
 //rota para exibição da página com todos os gabaritos
 app.get("/gabaritos", (req, res) => {
     var total = 0;
-    var lpdescritor3, lpdescritor15, matdescritor18, matdescritor19, matdescritor20, matdescritor21,  matdescritor22, lpdescritor8;
+    var lpdescritor3, lpdescritor15, matdescritor18, matdescritor19, matdescritor20, matdescritor21,  matdescritor22, lpdescritor8, lpdescritor10;
     
+    Lpd10.findAll({order: [['nome', 'ASC']]}).then(lpd10 => {
+        lpdescritor10 = lpd10;
+    });
+
     Lpd8.findAll({order: [['nome', 'ASC']]}).then(lpd8 => {
         lpdescritor8 = lpd8;
     });
@@ -108,7 +116,8 @@ app.get("/gabaritos", (req, res) => {
             matd20: matdescritor20,
             matd21: matdescritor21,
             matd22: matdescritor22,
-            lpd8: lpdescritor8
+            lpd8: lpdescritor8,
+            lpd10: lpdescritor10
 
         }); 
     });
@@ -157,6 +166,11 @@ app.get("/matd22", (req, res) => {
 //rota para a página das questões de LPD8
 app.get("/lpd8", (req, res) => {
     res.render("lpd8");
+});
+
+//rota para a página das questões de LPD10
+app.get("/lpd10", (req, res) => {
+    res.render("lpd10");
 });
 
 // ROTAS PARA ENVIO DOS GABARITOS
@@ -665,6 +679,62 @@ app.post("/gabarito_lpd8", (req, res) => {
     }
 });
 
+//rota para envio do gabarito de LPD10
+app.post("/gabarito_lpd10", (req, res) => {
+    var nome = req.body.name;
+    var q1 = req.body.q1;
+    var q2 = req.body.q2;
+    var q3 = req.body.q3;
+    var q4 = req.body.q4;
+    var q5 = req.body.q5;
+    var q6 = req.body.q6;
+    var q7 = req.body.q7;
+    var q8 = req.body.q8;
+    var q9 = req.body.q9;
+    var q10 = req.body.q10;
+    
+    if(nome==""||q1==null||q2==null||q3==null||q4==null||q5==null||q6==null
+    ||q7==null||q8==null||q9==null||q10==null){
+        notifier.notify({
+            title: 'RESPONDA TODAS AS PERGUNTAS',
+            message: 'Você não pode deixar nenhum campo em branco.'
+          });
+        res.redirect("/lpd10");
+    }else {
+        Lpd10.create({
+            nome: nome.toUpperCase(),
+            q1: q1,
+            q2: q2,
+            q3: q3,
+            q4: q4,
+            q5: q5,
+            q6: q6,
+            q7: q7,
+            q8: q8,
+            q9: q9,
+            q10: q10
+        }).then(() => {
+            notifier.notify({
+                title: 'GABARITO SALVO COM SUCESSO',
+                message: 'Parabéns você preencheu tudo.'
+              });
+              res.render("confirmacao", {
+                nome: nome,
+                q1: q1,
+                q2: q2,
+                q3: q3,
+                q4: q4,
+                q5: q5,
+                q6: q6,
+                q7: q7,
+                q8: q8,
+                q9: q9,
+                q10: q10
+            });
+        });
+    }
+});
+
 
 // ROTAS PARA APAGAR REGISTROS NO BANCO DE DADOS
 //*************************************************************************************** */
@@ -800,6 +870,22 @@ app.post("/deletarlpd8", (req, res) => {
     var id = req.body.id;
     if(id != undefined){
         Lpd8.destroy({
+            where: {
+                id: id
+            }
+            
+        }).then(()=>{
+            res.redirect("/gabaritos");
+        });
+    }
+    
+    });
+
+    //rota para apagar um registro da tabela de LPD10
+app.post("/deletarlpd10", (req, res) => {
+    var id = req.body.id;
+    if(id != undefined){
+        Lpd10.destroy({
             where: {
                 id: id
             }
