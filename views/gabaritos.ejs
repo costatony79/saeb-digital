@@ -473,7 +473,7 @@
                         <td class="align-middle">
                             <%= lpd8.q1 %>
                             <%
-                                if(lpd8.q1=="C"){
+                                if(lpd8.q1=="B"){
                                     total++
                                 }
                             %>
@@ -481,7 +481,7 @@
                         <td class="align-middle">
                             <%= lpd8.q2 %>
                             <% 
-                                if(lpd8.q2 == "B"){
+                                if(lpd8.q2 == "C"){
                                     total++
                                 }
                             %>
@@ -489,7 +489,7 @@
                         <td class="align-middle">
                             <%= lpd8.q3 %>
                             <% 
-                                if(lpd8.q3 == "C"){
+                                if(lpd8.q3 == "A"){
                                     total++
                                 }
                             %>
@@ -516,7 +516,7 @@
                         <td class="align-middle">
                             <%= lpd8.q6 %>
                             <% 
-                                if(lpd8.q6 == "A"){
+                                if(lpd8.q6 == "B"){
                                     total++
                                 }
                             %>
@@ -532,7 +532,7 @@
                         <td class="align-middle">
                             <%= lpd8.q8 %>
                             <% 
-                                if(lpd8.q8 == "A"){
+                                if(lpd8.q8 == "D"){
                                     total++
                                 }
                             %>
@@ -1287,7 +1287,9 @@
     var gabaritomatd22 = document.getElementById('gab_matd22');
     var btn_esconde_gab_matd22 = document.getElementById('esconder_matd22');
     var btn_mostra_gab_matd22 = document.getElementById('mostrar_matd22');
-   
+    var gabaritolpd8 = document.getElementById('gab_lpd8');
+    var btn_esconde_gab_lpd8 = document.getElementById('esconder_lpd8');
+    var btn_mostra_gab_lpd8 = document.getElementById('mostrar_lpd8');
    
    
     btn_esconde_gab_lpd1.addEventListener('click', function() {
@@ -1353,6 +1355,15 @@
     btn_mostra_gab_matd22.addEventListener('click', function() {
         gabaritomatd22.style.display = 'block';
     });
+
+    btn_esconde_gab_lpd8.addEventListener('click', function() {
+        gabaritolpd8.style.display = 'none';
+    });
+
+    btn_mostra_gab_lpd8.addEventListener('click', function() {
+        gabaritolpd8.style.display = 'block';
+    });
+
 </script>
 
 
