@@ -709,6 +709,286 @@
         </table>
 </div>
 
+<%// GABARITO E IDENTIFICAÇÃO LPD11  %>
+<div class="container-sm">
+    <div class="row">
+        <div class="col">
+            <h3 class="display-6 text-center">D11 – Distinguir um fato da opinião relativa a esse fato.</h3>            
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-warning" id="esconder_lpd11">Esconder</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-success" id="mostrar_lpd11">Mostrar</button> 
+            </div>
+        </div>
+    </div>
+        
+</div>
+<div class="container-sm" id="gab_lpd11">
+    <table class="table table-bordered table-sm">
+        <tbody>
+            <tr>
+                <th class="align-middle">NOME</th>
+                <th class="align-middle">Q1</th>
+                <th class="align-middle">Q2</th>
+                <th class="align-middle">Q3</th>
+                <th class="align-middle">Q4</th>
+                <th class="align-middle">Q5</th>
+                <th class="align-middle">Q6</th>
+                <th class="align-middle">Q7</th>
+                <th class="align-middle">Q8</th>
+                <th class="align-middle">Q9</th>
+                <th class="align-middle">Q10</th>
+                <th class="align-middle">NOTA</th>
+                <th class="align-middle">AÇÃO</th>                   
+            </tr>
+            <% lpd11.forEach((lpd11) => { %>
+                   
+                    <tr>
+                        <td class="align-middle text-nowrap"><%= lpd11.nome %></td>
+                        <td class="align-middle">
+                            <%= lpd11.q1 %>
+                            <%
+                                if(lpd11.q1=="B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd11.q2 %>
+                            <% 
+                                if(lpd11.q2 == "A"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd11.q3 %>
+                            <% 
+                                if(lpd11.q3 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        
+                        <td class="align-middle">
+                            <%= lpd11.q4 %>
+                            <% 
+                                if(lpd11.q4 == "A"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd11.q5 %>
+
+                            <% 
+                                if(lpd11.q5 == "A"){
+                                    total++
+                                }
+                            %>
+                        
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd11.q6 %>
+                            <% 
+                                if(lpd11.q6 == "C"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd11.q7 %>
+                            <% 
+                                if(lpd11.q7 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd11.q8 %>
+                            <% 
+                                if(lpd11.q8 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd11.q9 %>
+                            <% 
+                                if(lpd11.q9 == "B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd11.q10 %>
+                            <% 
+                                if(lpd11.q10 == "B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+
+                        <td class="align-middle"><%= total %></td>
+                        <% total = 0 %>
+
+                        <td class="align-middle">
+                            <form method="POST" action="/deletarlpd11">
+                                <input type="hidden" name="id" value="<%=lpd11.id%>">
+                                <button class="btn btn-danger">Deletar</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+                
+            </tbody>
+        </table>
+</div>
+
+<%// GABARITO E IDENTIFICAÇÃO LPD12  %>
+<div class="container-sm">
+    <div class="row">
+        <div class="col">
+            <h3 class="display-6 text-center">D12 - Estabelecer relações lógico-discursivas presentes no texto, marcadas 
+                por conjunções, advérbios etc.
+                </h3>            
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-warning" id="esconder_lpd12">Esconder</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-success" id="mostrar_lpd12">Mostrar</button> 
+            </div>
+        </div>
+    </div>
+        
+</div>
+<div class="container-sm" id="gab_lpd12">
+    <table class="table table-bordered table-sm">
+        <tbody>
+            <tr>
+                <th class="align-middle">NOME</th>
+                <th class="align-middle">Q1</th>
+                <th class="align-middle">Q2</th>
+                <th class="align-middle">Q3</th>
+                <th class="align-middle">Q4</th>
+                <th class="align-middle">Q5</th>
+                <th class="align-middle">Q6</th>
+                <th class="align-middle">Q7</th>
+                <th class="align-middle">Q8</th>
+                <th class="align-middle">Q9</th>
+                <th class="align-middle">Q10</th>
+                <th class="align-middle">NOTA</th>
+                <th class="align-middle">AÇÃO</th>                   
+            </tr>
+            <% lpd12.forEach((lpd12) => { %>
+                   
+                    <tr>
+                        <td class="align-middle text-nowrap"><%= lpd12.nome %></td>
+                        <td class="align-middle">
+                            <%= lpd12.q1 %>
+                            <%
+                                if(lpd12.q1=="B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd12.q2 %>
+                            <% 
+                                if(lpd12.q2 == "A"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd12.q3 %>
+                            <% 
+                                if(lpd12.q3 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        
+                        <td class="align-middle">
+                            <%= lpd12.q4 %>
+                            <% 
+                                if(lpd12.q4 == "A"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd12.q5 %>
+
+                            <% 
+                                if(lpd12.q5 == "A"){
+                                    total++
+                                }
+                            %>
+                        
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd12.q6 %>
+                            <% 
+                                if(lpd12.q6 == "C"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd12.q7 %>
+                            <% 
+                                if(lpd12.q7 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd12.q8 %>
+                            <% 
+                                if(lpd12.q8 == "D"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd12.q9 %>
+                            <% 
+                                if(lpd12.q9 == "B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+                        <td class="align-middle">
+                            <%= lpd12.q10 %>
+                            <% 
+                                if(lpd12.q10 == "B"){
+                                    total++
+                                }
+                            %>
+                        </td>
+
+                        <td class="align-middle"><%= total %></td>
+                        <% total = 0 %>
+
+                        <td class="align-middle">
+                            <form method="POST" action="/deletarlpd12">
+                                <input type="hidden" name="id" value="<%=lpd12.id%>">
+                                <button class="btn btn-danger">Deletar</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+                
+            </tbody>
+        </table>
+</div>
+
 
 <% // Todos os gabaritos de Matemática %>
 
@@ -1432,6 +1712,12 @@
     var gabaritolpd10 = document.getElementById('gab_lpd10');
     var btn_esconde_gab_lpd10 = document.getElementById('esconder_lpd10');
     var btn_mostra_gab_lpd10 = document.getElementById('mostrar_lpd10');
+    var gabaritolpd11 = document.getElementById('gab_lpd11');
+    var btn_esconde_gab_lpd11 = document.getElementById('esconder_lpd11');
+    var btn_mostra_gab_lpd11 = document.getElementById('mostrar_lpd11');
+    var gabaritolpd12 = document.getElementById('gab_lpd12');
+    var btn_esconde_gab_lpd12 = document.getElementById('esconder_lpd12');
+    var btn_mostra_gab_lpd12 = document.getElementById('mostrar_lpd12');
    
    
     btn_esconde_gab_lpd1.addEventListener('click', function() {
@@ -1512,6 +1798,22 @@
 
     btn_mostra_gab_lpd10.addEventListener('click', function() {
         gabaritolpd10.style.display = 'block';
+    });
+
+    btn_esconde_gab_lpd11.addEventListener('click', function() {
+        gabaritolpd11.style.display = 'none';
+    });
+
+    btn_mostra_gab_lpd11.addEventListener('click', function() {
+        gabaritolpd11.style.display = 'block';
+    });
+
+    btn_esconde_gab_lpd12.addEventListener('click', function() {
+        gabaritolpd12.style.display = 'none';
+    });
+
+    btn_mostra_gab_lpd12.addEventListener('click', function() {
+        gabaritolpd12.style.display = 'block';
     });
 
 </script>

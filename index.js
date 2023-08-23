@@ -38,6 +38,12 @@ const Lpd8 = require("./database/Lpd8");
 //model do BD para receber as respostas do gabarito de LPD10
 const Lpd10 = require("./database/Lpd10");
 
+//model do BD para receber as respostas do gabarito de LPD11
+const Lpd11 = require("./database/Lpd11");
+
+//model do BD para receber as respostas do gabarito de LPD12
+const Lpd12 = require("./database/Lpd12");
+
 
 //Conexão com o banco de dados
 connection
@@ -67,8 +73,16 @@ app.get("/", (req, res) => {
 //rota para exibição da página com todos os gabaritos
 app.get("/gabaritos", (req, res) => {
     var total = 0;
-    var lpdescritor3, lpdescritor15, matdescritor18, matdescritor19, matdescritor20, matdescritor21,  matdescritor22, lpdescritor8, lpdescritor10;
+    var lpdescritor3, lpdescritor15, matdescritor18, matdescritor19, matdescritor20, matdescritor21,  matdescritor22, lpdescritor8, lpdescritor10, lpdescritor11, lpdescritor12;
     
+    Lpd12.findAll({order: [['nome', 'ASC']]}).then(lpd12 => {
+        lpdescritor12 = lpd12;
+    });
+
+    Lpd11.findAll({order: [['nome', 'ASC']]}).then(lpd11 => {
+        lpdescritor11 = lpd11;
+    });
+
     Lpd10.findAll({order: [['nome', 'ASC']]}).then(lpd10 => {
         lpdescritor10 = lpd10;
     });
@@ -117,7 +131,9 @@ app.get("/gabaritos", (req, res) => {
             matd21: matdescritor21,
             matd22: matdescritor22,
             lpd8: lpdescritor8,
-            lpd10: lpdescritor10
+            lpd10: lpdescritor10,
+            lpd11: lpdescritor11,
+            lpd12: lpdescritor12
 
         }); 
     });
@@ -171,6 +187,16 @@ app.get("/lpd8", (req, res) => {
 //rota para a página das questões de LPD10
 app.get("/lpd10", (req, res) => {
     res.render("lpd10");
+});
+
+//rota para a página das questões de LPD11
+app.get("/lpd11", (req, res) => {
+    res.render("lpd11");
+});
+
+//rota para a página das questões de LPD12
+app.get("/lpd12", (req, res) => {
+    res.render("lpd12");
 });
 
 // ROTAS PARA ENVIO DOS GABARITOS
@@ -734,6 +760,117 @@ app.post("/gabarito_lpd10", (req, res) => {
         });
     }
 });
+//rota para envio do gabarito de LPD11
+app.post("/gabarito_lpd11", (req, res) => {
+    var nome = req.body.name;
+    var q1 = req.body.q1;
+    var q2 = req.body.q2;
+    var q3 = req.body.q3;
+    var q4 = req.body.q4;
+    var q5 = req.body.q5;
+    var q6 = req.body.q6;
+    var q7 = req.body.q7;
+    var q8 = req.body.q8;
+    var q9 = req.body.q9;
+    var q10 = req.body.q10;
+    
+    if(nome==""||q1==null||q2==null||q3==null||q4==null||q5==null||q6==null
+    ||q7==null||q8==null||q9==null||q10==null){
+        notifier.notify({
+            title: 'RESPONDA TODAS AS PERGUNTAS',
+            message: 'Você não pode deixar nenhum campo em branco.'
+          });
+        res.redirect("/lpd11");
+    }else {
+        Lpd11.create({
+            nome: nome.toUpperCase(),
+            q1: q1,
+            q2: q2,
+            q3: q3,
+            q4: q4,
+            q5: q5,
+            q6: q6,
+            q7: q7,
+            q8: q8,
+            q9: q9,
+            q10: q10
+        }).then(() => {
+            notifier.notify({
+                title: 'GABARITO SALVO COM SUCESSO',
+                message: 'Parabéns você preencheu tudo.'
+              });
+              res.render("confirmacao", {
+                nome: nome,
+                q1: q1,
+                q2: q2,
+                q3: q3,
+                q4: q4,
+                q5: q5,
+                q6: q6,
+                q7: q7,
+                q8: q8,
+                q9: q9,
+                q10: q10
+            });
+        });
+    }
+});
+//rota para envio do gabarito de LPD12
+app.post("/gabarito_lpd12", (req, res) => {
+    var nome = req.body.name;
+    var q1 = req.body.q1;
+    var q2 = req.body.q2;
+    var q3 = req.body.q3;
+    var q4 = req.body.q4;
+    var q5 = req.body.q5;
+    var q6 = req.body.q6;
+    var q7 = req.body.q7;
+    var q8 = req.body.q8;
+    var q9 = req.body.q9;
+    var q10 = req.body.q10;
+    
+    if(nome==""||q1==null||q2==null||q3==null||q4==null||q5==null||q6==null
+    ||q7==null||q8==null||q9==null||q10==null){
+        notifier.notify({
+            title: 'RESPONDA TODAS AS PERGUNTAS',
+            message: 'Você não pode deixar nenhum campo em branco.'
+          });
+        res.redirect("/lpd12");
+    }else {
+        Lpd12.create({
+            nome: nome.toUpperCase(),
+            q1: q1,
+            q2: q2,
+            q3: q3,
+            q4: q4,
+            q5: q5,
+            q6: q6,
+            q7: q7,
+            q8: q8,
+            q9: q9,
+            q10: q10
+        }).then(() => {
+            notifier.notify({
+                title: 'GABARITO SALVO COM SUCESSO',
+                message: 'Parabéns você preencheu tudo.'
+              });
+              res.render("confirmacao", {
+                nome: nome,
+                q1: q1,
+                q2: q2,
+                q3: q3,
+                q4: q4,
+                q5: q5,
+                q6: q6,
+                q7: q7,
+                q8: q8,
+                q9: q9,
+                q10: q10
+            });
+        });
+    }
+});
+
 
 
 // ROTAS PARA APAGAR REGISTROS NO BANCO DE DADOS
@@ -886,6 +1023,38 @@ app.post("/deletarlpd10", (req, res) => {
     var id = req.body.id;
     if(id != undefined){
         Lpd10.destroy({
+            where: {
+                id: id
+            }
+            
+        }).then(()=>{
+            res.redirect("/gabaritos");
+        });
+    }
+    
+    });
+
+        //rota para apagar um registro da tabela de LPD10
+app.post("/deletarlpd11", (req, res) => {
+    var id = req.body.id;
+    if(id != undefined){
+        Lpd11.destroy({
+            where: {
+                id: id
+            }
+            
+        }).then(()=>{
+            res.redirect("/gabaritos");
+        });
+    }
+    
+    });
+
+            //rota para apagar um registro da tabela de LPD10
+app.post("/deletarlpd12", (req, res) => {
+    var id = req.body.id;
+    if(id != undefined){
+        Lpd12.destroy({
             where: {
                 id: id
             }
