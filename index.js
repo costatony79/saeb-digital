@@ -150,7 +150,7 @@ app.get("/gabaritos", (req, res) => {
             lpd11: lpdescritor11,
             lpd12: lpdescritor12,
             matd23: matdescritor23,
-            matd23: matdescritor24
+            matd24: matdescritor24
 
         }); 
     });
@@ -920,7 +920,7 @@ app.post("/gabarito_matd23", (req, res) => {
           });
         res.redirect("/matd23");
     }else {
-        matd23.create({
+        Matd23.create({
             nome: nome.toUpperCase(),
             q1: q1,
             q2: q2,
@@ -976,7 +976,7 @@ app.post("/gabarito_matd24", (req, res) => {
           });
         res.redirect("/matd24");
     }else {
-        matd24.create({
+        Matd24.create({
             nome: nome.toUpperCase(),
             q1: q1,
             q2: q2,
