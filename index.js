@@ -44,6 +44,12 @@ const Lpd11 = require("./database/Lpd11");
 //model do BD para receber as respostas do gabarito de LPD12
 const Lpd12 = require("./database/Lpd12");
 
+//model do BD para receber as respostas do gabarito de MATD23
+const Matd23 = require("./database/Matd23");
+
+//model do BD para receber as respostas do gabarito de MATD24
+const Matd24 = require("./database/Matd24");
+
 
 //Conexão com o banco de dados
 connection
@@ -73,7 +79,16 @@ app.get("/", (req, res) => {
 //rota para exibição da página com todos os gabaritos
 app.get("/gabaritos", (req, res) => {
     var total = 0;
-    var lpdescritor3, lpdescritor15, matdescritor18, matdescritor19, matdescritor20, matdescritor21,  matdescritor22, lpdescritor8, lpdescritor10, lpdescritor11, lpdescritor12;
+    var lpdescritor3, lpdescritor15, matdescritor18, matdescritor19, matdescritor20, matdescritor21,  matdescritor22, lpdescritor8, lpdescritor10, lpdescritor11, lpdescritor12, 
+    matdescritor23, matdescritor24;
+    
+    Matd24.findAll({order: [['nome', 'ASC']]}).then(matd24 => {
+        matdescritor24 = matd24;
+    });
+
+    Matd23.findAll({order: [['nome', 'ASC']]}).then(matd23 => {
+        matdescritor23 = matd23;
+    });
     
     Lpd12.findAll({order: [['nome', 'ASC']]}).then(lpd12 => {
         lpdescritor12 = lpd12;
@@ -133,7 +148,9 @@ app.get("/gabaritos", (req, res) => {
             lpd8: lpdescritor8,
             lpd10: lpdescritor10,
             lpd11: lpdescritor11,
-            lpd12: lpdescritor12
+            lpd12: lpdescritor12,
+            matd23: matdescritor23,
+            matd23: matdescritor24
 
         }); 
     });
@@ -197,6 +214,16 @@ app.get("/lpd11", (req, res) => {
 //rota para a página das questões de LPD12
 app.get("/lpd12", (req, res) => {
     res.render("lpd12");
+});
+
+//rota para a página das questões de MATD23
+app.get("/matd23", (req, res) => {
+    res.render("matd23");
+});
+
+//rota para a página das questões de MATD24
+app.get("/matd24", (req, res) => {
+    res.render("matd24");
 });
 
 // ROTAS PARA ENVIO DOS GABARITOS
@@ -871,6 +898,117 @@ app.post("/gabarito_lpd12", (req, res) => {
     }
 });
 
+//rota para envio do gabarito de MATD23
+app.post("/gabarito_matd23", (req, res) => {
+    var nome = req.body.name;
+    var q1 = req.body.q1;
+    var q2 = req.body.q2;
+    var q3 = req.body.q3;
+    var q4 = req.body.q4;
+    var q5 = req.body.q5;
+    var q6 = req.body.q6;
+    var q7 = req.body.q7;
+    var q8 = req.body.q8;
+    var q9 = req.body.q9;
+    var q10 = req.body.q10;
+    
+    if(nome==""||q1==null||q2==null||q3==null||q4==null||q5==null||q6==null
+    ||q7==null||q8==null||q9==null||q10==null){
+        notifier.notify({
+            title: 'RESPONDA TODAS AS PERGUNTAS',
+            message: 'Você não pode deixar nenhum campo em branco.'
+          });
+        res.redirect("/matd23");
+    }else {
+        matd23.create({
+            nome: nome.toUpperCase(),
+            q1: q1,
+            q2: q2,
+            q3: q3,
+            q4: q4,
+            q5: q5,
+            q6: q6,
+            q7: q7,
+            q8: q8,
+            q9: q9,
+            q10: q10
+        }).then(() => {
+            notifier.notify({
+                title: 'GABARITO SALVO COM SUCESSO',
+                message: 'Parabéns você preencheu tudo.'
+              });
+              res.render("confirmacao", {
+                nome: nome,
+                q1: q1,
+                q2: q2,
+                q3: q3,
+                q4: q4,
+                q5: q5,
+                q6: q6,
+                q7: q7,
+                q8: q8,
+                q9: q9,
+                q10: q10
+            });
+        });
+    }
+});
+
+//rota para envio do gabarito de MATD24
+app.post("/gabarito_matd24", (req, res) => {
+    var nome = req.body.name;
+    var q1 = req.body.q1;
+    var q2 = req.body.q2;
+    var q3 = req.body.q3;
+    var q4 = req.body.q4;
+    var q5 = req.body.q5;
+    var q6 = req.body.q6;
+    var q7 = req.body.q7;
+    var q8 = req.body.q8;
+    var q9 = req.body.q9;
+    var q10 = req.body.q10;
+    
+    if(nome==""||q1==null||q2==null||q3==null||q4==null||q5==null||q6==null
+    ||q7==null||q8==null||q9==null||q10==null){
+        notifier.notify({
+            title: 'RESPONDA TODAS AS PERGUNTAS',
+            message: 'Você não pode deixar nenhum campo em branco.'
+          });
+        res.redirect("/matd24");
+    }else {
+        matd24.create({
+            nome: nome.toUpperCase(),
+            q1: q1,
+            q2: q2,
+            q3: q3,
+            q4: q4,
+            q5: q5,
+            q6: q6,
+            q7: q7,
+            q8: q8,
+            q9: q9,
+            q10: q10
+        }).then(() => {
+            notifier.notify({
+                title: 'GABARITO SALVO COM SUCESSO',
+                message: 'Parabéns você preencheu tudo.'
+              });
+              res.render("confirmacao", {
+                nome: nome,
+                q1: q1,
+                q2: q2,
+                q3: q3,
+                q4: q4,
+                q5: q5,
+                q6: q6,
+                q7: q7,
+                q8: q8,
+                q9: q9,
+                q10: q10
+            });
+        });
+    }
+});
 
 
 // ROTAS PARA APAGAR REGISTROS NO BANCO DE DADOS
@@ -1065,6 +1203,38 @@ app.post("/deletarlpd12", (req, res) => {
     }
     
     });
+
+        //rota para apagar um registro da tabela de MATD23
+app.post("/deletarmatd23", (req, res) => {
+    var id = req.body.id;
+    if(id != undefined){
+        Matd23.destroy({
+            where: {
+                id: id
+            }
+            
+        }).then(()=>{
+            res.redirect("/gabaritos");
+        });
+    }
+    
+    }); 
+
+            //rota para apagar um registro da tabela de MATD24
+app.post("/deletarmatd24", (req, res) => {
+    var id = req.body.id;
+    if(id != undefined){
+        Matd24.destroy({
+            where: {
+                id: id
+            }
+            
+        }).then(()=>{
+            res.redirect("/gabaritos");
+        });
+    }
+    
+    }); 
 
 //servidor
 app.listen(1519, ()=>{
