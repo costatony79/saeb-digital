@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <title>GABARITOS</title>
 </head>
-<body>
+<body onload="fechaTudo()">
 <hr>
 <div class="container-sm">
     <div class="h1 text-center bg-primary text-light">JULHO - AGOSTO</div>
@@ -32,7 +32,7 @@
     
     
 </div>
-<div class="container-sm" id="gab_lpd1">
+<div class="container-sm fecha" id="gab_lpd1">
     <table class="table table-bordered table-sm">
         <tbody>
             <tr>
@@ -170,7 +170,7 @@
     </div>
         
 </div>
-<div class="container-sm" id="gab_lpd3">
+<div class="container-sm fecha" id="gab_lpd3">
     <table class="table table-bordered table-sm">
         <tbody>
             <tr>
@@ -309,7 +309,7 @@
     </div>
         
 </div>
-<div class="container-sm" id="gab_lpd15">
+<div class="container-sm fecha" id="gab_lpd15">
     <table class="table table-bordered table-sm">
         <tbody>
             <tr>
@@ -448,7 +448,7 @@
     </div>
         
 </div>
-<div class="container-sm" id="gab_lpd8">
+<div class="container-sm fecha" id="gab_lpd8">
     <table class="table table-bordered table-sm">
         <tbody>
             <tr>
@@ -587,7 +587,7 @@
     </div>
         
 </div>
-<div class="container-sm" id="gab_lpd10">
+<div class="container-sm fecha" id="gab_lpd10">
     <table class="table table-bordered table-sm">
         <tbody>
             <tr>
@@ -726,7 +726,7 @@
     </div>
         
 </div>
-<div class="container-sm" id="gab_lpd11">
+<div class="container-sm fecha" id="gab_lpd11">
     <table class="table table-bordered table-sm">
         <tbody>
             <tr>
@@ -867,7 +867,7 @@
     </div>
         
 </div>
-<div class="container-sm" id="gab_lpd12">
+<div class="container-sm fecha" id="gab_lpd12">
     <table class="table table-bordered table-sm">
         <tbody>
             <tr>
@@ -1009,7 +1009,7 @@
     </div>
         
 </div>
-<div class="container-sm" id="gab_matd18">
+<div class="container-sm fecha" id="gab_matd18">
     <table class="table table-bordered table-sm">
         <tbody>
             <tr>
@@ -1147,7 +1147,7 @@
     </div>
         
 </div>
-<div class="container-sm" id="gab_matd19">
+<div class="container-sm fecha" id="gab_matd19">
     <table class="table table-bordered table-sm">
         <tbody>
             <tr>
@@ -1285,7 +1285,7 @@
     </div>
         
 </div>
-<div class="container-sm" id="gab_matd20">
+<div class="container-sm fecha" id="gab_matd20">
     <table class="table table-bordered table-sm">
         <tbody>
             <tr>
@@ -1420,7 +1420,7 @@
         </div>
     </div>
 </div>
-<div class="container-sm" id="gab_matd21">
+<div class="container-sm fecha" id="gab_matd21">
 <table class="table table-bordered table-sm">
     <tbody>
         <tr>
@@ -1557,7 +1557,7 @@
         </div>
     </div>
 </div>
-<div class="container-sm" id="gab_matd22">
+<div class="container-sm fecha" id="gab_matd22">
 <table class="table table-bordered table-sm">
     <tbody>
         <tr>
@@ -1693,7 +1693,7 @@
         </div>
     </div>
 </div>
-<div class="container-sm" id="gab_matd23">
+<div class="container-sm fecha" id="gab_matd23">
 <table class="table table-bordered table-sm">
     <tbody>
         <tr>
@@ -1829,7 +1829,7 @@
         </div>
     </div>
 </div>
-<div class="container-sm" id="gab_matd24">
+<div class="container-sm fecha" id="gab_matd24">
 <table class="table table-bordered table-sm">
     <tbody>
         <tr>
@@ -1965,7 +1965,7 @@
         </div>
     </div>
 </div>
-<div class="container-sm" id="gab_matd25">
+<div class="container-sm fecha" id="gab_matd25">
 <table class="table table-bordered table-sm">
     <tbody>
         <tr>
@@ -2101,7 +2101,7 @@
         </div>
     </div>
 </div>
-<div class="container-sm" id="gab_matd26">
+<div class="container-sm fecha" id="gab_matd26">
 <table class="table table-bordered table-sm">
     <tbody>
         <tr>
@@ -2237,7 +2237,7 @@
         </div>
     </div>
 </div>
-<div class="container-sm" id="gab_matd27">
+<div class="container-sm fecha" id="gab_matd27">
 <table class="table table-bordered table-sm">
     <tbody>
         <tr>
@@ -2373,7 +2373,7 @@
         </div>
     </div>
 </div>
-<div class="container-sm" id="gab_matd28">
+<div class="container-sm fecha" id="gab_matd28">
 <table class="table table-bordered table-sm">
     <tbody>
         <tr>
@@ -2698,6 +2698,15 @@
     btn_mostra_gab_matd28.addEventListener('click', function() {
         gabaritomatd28.style.display = 'block';
     });
+
+    window.addEventListener('load', function() {
+    var elementosParaEsconder = document.querySelectorAll('.fecha');
+    
+        elementosParaEsconder.forEach(function(elemento) {
+            elemento.style.display = 'none';
+        });
+    });
+
 
 </script>
 
