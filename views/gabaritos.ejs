@@ -1954,7 +1954,7 @@
 <%// GABARITO E IDENTIFICAÇÃO MATD25  %>
 <div class="row">
     <div class="col">
-        <h3 class="display-6 text-center">D24 - Identificar fração como representação que pode estar associada a diferentes significados.</h3>            
+        <h3 class="display-6 text-center">D25 - Resolver problema com números racionais expressos na forma decimal envolvendo diferentes significados da adição ou subtração.</h3>            
     </div>
     <div class="row">
         <div class="col">
@@ -1990,7 +1990,7 @@
                     <td class="align-middle">
                         <%= matd25.q1 %>
                         <%
-                            if(matd25.q1=="D"){
+                            if(matd25.q1=="C"){
                                 total++
                             }
                         %>
@@ -1998,7 +1998,7 @@
                     <td class="align-middle">
                         <%= matd25.q2 %>
                         <% 
-                            if(matd25.q2 == "A"){
+                            if(matd25.q2 == "C"){
                                 total++
                             }
                         %>
@@ -2015,7 +2015,7 @@
                     <td class="align-middle">
                         <%= matd25.q4 %>
                         <% 
-                            if(matd25.q4 == "A"){
+                            if(matd25.q4 == "D"){
                                 total++
                             }
                         %>
@@ -2041,7 +2041,7 @@
                     <td class="align-middle">
                         <%= matd25.q7 %>
                         <% 
-                            if(matd25.q7 == "C"){
+                            if(matd25.q7 == "A"){
                                 total++
                             }
                         %>
@@ -2049,7 +2049,7 @@
                     <td class="align-middle">
                         <%= matd25.q8 %>
                         <% 
-                            if(matd25.q8 == "B"){
+                            if(matd25.q8 == "D"){
                                 total++
                             }
                         %>
@@ -2057,7 +2057,7 @@
                     <td class="align-middle">
                         <%= matd25.q9 %>
                         <% 
-                            if(matd25.q9 == "B"){
+                            if(matd25.q9 == "A"){
                                 total++
                             }
                         %>
@@ -2065,7 +2065,7 @@
                     <td class="align-middle">
                         <%= matd25.q10 %>
                         <% 
-                            if(matd25.q10 == "D"){
+                            if(matd25.q10 == "A"){
                                 total++
                             }
                         %>
@@ -2077,6 +2077,142 @@
                     <td class="align-middle">
                         <form method="POST" action="/deletarmatd25">
                             <input type="hidden" name="id" value="<%=matd25.id%>">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+            
+        </tbody>
+    </table>
+</div>
+
+<%// GABARITO E IDENTIFICAÇÃO MATD26  %>
+<div class="row">
+    <div class="col">
+        <h3 class="display-6 text-center">D26 - Resolver problema envolvendo noções de porcentagem (25%, 50%, 100%).</h3>            
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-warning" id="esconder_matd26">Esconder</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" id="mostrar_matd26">Mostrar</button> 
+        </div>
+    </div>
+</div>
+<div class="container-sm" id="gab_matd26">
+<table class="table table-bordered table-sm">
+    <tbody>
+        <tr>
+            <th class="align-middle">NOME</th>
+            <th class="align-middle">Q1</th>
+            <th class="align-middle">Q2</th>
+            <th class="align-middle">Q3</th>
+            <th class="align-middle">Q4</th>
+            <th class="align-middle">Q5</th>
+            <th class="align-middle">Q6</th>
+            <th class="align-middle">Q7</th>
+            <th class="align-middle">Q8</th>
+            <th class="align-middle">Q9</th>
+            <th class="align-middle">Q10</th>
+            <th class="align-middle">NOTA</th>
+            <th class="align-middle">AÇÃO</th>                   
+        </tr>
+        <% matd26.forEach((matd26) => { %>
+               
+                <tr>
+                    <td class="align-middle text-nowrap"><%= matd26.nome %></td>
+                    <td class="align-middle">
+                        <%= matd26.q1 %>
+                        <%
+                            if(matd26.q1=="A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd26.q2 %>
+                        <% 
+                            if(matd26.q2 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd26.q3 %>
+                        <% 
+                            if(matd26.q3 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    
+                    <td class="align-middle">
+                        <%= matd26.q4 %>
+                        <% 
+                            if(matd26.q4 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd26.q5 %>
+
+                        <% 
+                            if(matd26.q5 == "C"){
+                                total++
+                            }
+                        %>
+                    
+                    </td>
+                    <td class="align-middle">
+                        <%= matd26.q6 %>
+                        <% 
+                            if(matd26.q6 == "A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd26.q7 %>
+                        <% 
+                            if(matd26.q7 == "A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd26.q8 %>
+                        <% 
+                            if(matd26.q8 == "A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd26.q9 %>
+                        <% 
+                            if(matd26.q9 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd26.q10 %>
+                        <% 
+                            if(matd26.q10 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+
+                    <td class="align-middle"><%= total %></td>
+                    <% total = 0 %>
+
+                    <td class="align-middle">
+                        <form method="POST" action="/deletarmatd26">
+                            <input type="hidden" name="id" value="<%=matd26.id%>">
                             <button class="btn btn-danger">Deletar</button>
                         </form>
                     </td>
@@ -2135,6 +2271,9 @@
     var gabaritomatd25 = document.getElementById('gab_matd25');
     var btn_esconde_gab_matd25 = document.getElementById('esconder_matd25');
     var btn_mostra_gab_matd25 = document.getElementById('mostrar_matd25');
+    var gabaritomatd26 = document.getElementById('gab_matd26');
+    var btn_esconde_gab_matd26 = document.getElementById('esconder_matd26');
+    var btn_mostra_gab_matd26 = document.getElementById('mostrar_matd26');
    
    
     btn_esconde_gab_lpd1.addEventListener('click', function() {
@@ -2255,6 +2394,14 @@
 
     btn_mostra_gab_matd25.addEventListener('click', function() {
         gabaritomatd25.style.display = 'block';
+    });
+
+    btn_esconde_gab_matd26.addEventListener('click', function() {
+        gabaritomatd26.style.display = 'none';
+    });
+
+    btn_mostra_gab_matd26.addEventListener('click', function() {
+        gabaritomatd26.style.display = 'block';
     });
 
 </script>
