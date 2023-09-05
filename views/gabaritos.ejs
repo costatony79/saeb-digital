@@ -2337,7 +2337,7 @@
                     <td class="align-middle">
                         <%= matd27.q10 %>
                         <% 
-                            if(matd27.q10 == "B"){
+                            if(matd27.q10 == "D"){
                                 total++
                             }
                         %>
@@ -2495,6 +2495,549 @@
     </table>
 </div>
 
+<%// GABARITO E IDENTIFICAÇÃO MATD2  %>
+<div class="row">
+    <div class="col">
+        <h3 class="display-6 text-center">D2 - Identificar propriedades comuns e diferenças entre poliedros e corpos redondos, relacionando figuras tridimensionais com suas planificações.</h3>            
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-warning" id="esconder_matd2">Esconder</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" id="mostrar_matd2">Mostrar</button> 
+        </div>
+    </div>
+</div>
+<div class="container-sm fecha" id="gab_matd2">
+<table class="table table-bordered table-sm">
+    <tbody>
+        <tr>
+            <th class="align-middle">NOME</th>
+            <th class="align-middle">Q1</th>
+            <th class="align-middle">Q2</th>
+            <th class="align-middle">Q3</th>
+            <th class="align-middle">Q4</th>
+            <th class="align-middle">Q5</th>
+            <th class="align-middle">Q6</th>
+            <th class="align-middle">Q7</th>
+            <th class="align-middle">Q8</th>
+            <th class="align-middle">Q9</th>
+            <th class="align-middle">Q10</th>
+            <th class="align-middle">NOTA</th>
+            <th class="align-middle">AÇÃO</th>                   
+        </tr>
+        <% matd2.forEach((matd2) => { %>
+               
+                <tr>
+                    <td class="align-middle text-nowrap"><%= matd2.nome %></td>
+                    <td class="align-middle">
+                        <%= matd2.q1 %>
+                        <%
+                            if(matd2.q1=="A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd2.q2 %>
+                        <% 
+                            if(matd2.q2 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd2.q3 %>
+                        <% 
+                            if(matd2.q3 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    
+                    <td class="align-middle">
+                        <%= matd2.q4 %>
+                        <% 
+                            if(matd2.q4 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd2.q5 %>
+
+                        <% 
+                            if(matd2.q5 == "B"){
+                                total++
+                            }
+                        %>
+                    
+                    </td>
+                    <td class="align-middle">
+                        <%= matd2.q6 %>
+                        <% 
+                            if(matd2.q6 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd2.q7 %>
+                        <% 
+                            if(matd2.q7 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd2.q8 %>
+                        <% 
+                            if(matd2.q8 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd2.q9 %>
+                        <% 
+                            if(matd2.q9 == "A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd2.q10 %>
+                        <% 
+                            if(matd2.q10 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+
+                    <td class="align-middle"><%= total %></td>
+                    <% total = 0 %>
+
+                    <td class="align-middle">
+                        <form method="POST" action="/deletarmatd2">
+                            <input type="hidden" name="id" value="<%=matd2.id%>">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+            
+        </tbody>
+    </table>
+</div>
+
+<%// GABARITO E IDENTIFICAÇÃO MATD3  %>
+<div class="row">
+    <div class="col">
+        <h3 class="display-6 text-center">D3 - Identificar propriedades comuns e diferenças entre figuras bidimensionais pelo número de lados, pelos tipos de ângulos.</h3>            
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-warning" id="esconder_matd3">Esconder</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" id="mostrar_matd3">Mostrar</button> 
+        </div>
+    </div>
+</div>
+<div class="container-sm fecha" id="gab_matd3">
+<table class="table table-bordered table-sm">
+    <tbody>
+        <tr>
+            <th class="align-middle">NOME</th>
+            <th class="align-middle">Q1</th>
+            <th class="align-middle">Q2</th>
+            <th class="align-middle">Q3</th>
+            <th class="align-middle">Q4</th>
+            <th class="align-middle">Q5</th>
+            <th class="align-middle">Q6</th>
+            <th class="align-middle">Q7</th>
+            <th class="align-middle">Q8</th>
+            <th class="align-middle">Q9</th>
+            <th class="align-middle">Q10</th>
+            <th class="align-middle">NOTA</th>
+            <th class="align-middle">AÇÃO</th>                   
+        </tr>
+        <% matd3.forEach((matd3) => { %>
+               
+                <tr>
+                    <td class="align-middle text-nowrap"><%= matd3.nome %></td>
+                    <td class="align-middle">
+                        <%= matd3.q1 %>
+                        <%
+                            if(matd3.q1=="A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd3.q2 %>
+                        <% 
+                            if(matd3.q2 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd3.q3 %>
+                        <% 
+                            if(matd3.q3 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    
+                    <td class="align-middle">
+                        <%= matd3.q4 %>
+                        <% 
+                            if(matd3.q4 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd3.q5 %>
+
+                        <% 
+                            if(matd3.q5 == "B"){
+                                total++
+                            }
+                        %>
+                    
+                    </td>
+                    <td class="align-middle">
+                        <%= matd3.q6 %>
+                        <% 
+                            if(matd3.q6 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd3.q7 %>
+                        <% 
+                            if(matd3.q7 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd3.q8 %>
+                        <% 
+                            if(matd3.q8 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd3.q9 %>
+                        <% 
+                            if(matd3.q9 == "A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd3.q10 %>
+                        <% 
+                            if(matd3.q10 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+
+                    <td class="align-middle"><%= total %></td>
+                    <% total = 0 %>
+
+                    <td class="align-middle">
+                        <form method="POST" action="/deletarmatd3">
+                            <input type="hidden" name="id" value="<%=matd3.id%>">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+            
+        </tbody>
+    </table>
+</div>
+
+<%// GABARITO E IDENTIFICAÇÃO MATD4  %>
+<div class="row">
+    <div class="col">
+        <h3 class="display-6 text-center">D4 - Identificar quadriláteros observando as posições relativas entre seus lados (paralelos, concorrentes, perpendiculares).</h3>            
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-warning" id="esconder_matd4">Esconder</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" id="mostrar_matd4">Mostrar</button> 
+        </div>
+    </div>
+</div>
+<div class="container-sm fecha" id="gab_matd4">
+<table class="table table-bordered table-sm">
+    <tbody>
+        <tr>
+            <th class="align-middle">NOME</th>
+            <th class="align-middle">Q1</th>
+            <th class="align-middle">Q2</th>
+            <th class="align-middle">Q3</th>
+            <th class="align-middle">Q4</th>
+            <th class="align-middle">Q5</th>
+            <th class="align-middle">Q6</th>
+            <th class="align-middle">Q7</th>
+            <th class="align-middle">Q8</th>
+            <th class="align-middle">Q9</th>
+            <th class="align-middle">Q10</th>
+            <th class="align-middle">NOTA</th>
+            <th class="align-middle">AÇÃO</th>                   
+        </tr>
+        <% matd4.forEach((matd4) => { %>
+               
+                <tr>
+                    <td class="align-middle text-nowrap"><%= matd4.nome %></td>
+                    <td class="align-middle">
+                        <%= matd4.q1 %>
+                        <%
+                            if(matd4.q1=="A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd4.q2 %>
+                        <% 
+                            if(matd4.q2 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd4.q3 %>
+                        <% 
+                            if(matd4.q3 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    
+                    <td class="align-middle">
+                        <%= matd4.q4 %>
+                        <% 
+                            if(matd4.q4 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd4.q5 %>
+
+                        <% 
+                            if(matd4.q5 == "B"){
+                                total++
+                            }
+                        %>
+                    
+                    </td>
+                    <td class="align-middle">
+                        <%= matd4.q6 %>
+                        <% 
+                            if(matd4.q6 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd4.q7 %>
+                        <% 
+                            if(matd4.q7 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd4.q8 %>
+                        <% 
+                            if(matd4.q8 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd4.q9 %>
+                        <% 
+                            if(matd4.q9 == "A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd4.q10 %>
+                        <% 
+                            if(matd4.q10 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+
+                    <td class="align-middle"><%= total %></td>
+                    <% total = 0 %>
+
+                    <td class="align-middle">
+                        <form method="POST" action="/deletarmatd4">
+                            <input type="hidden" name="id" value="<%=matd4.id%>">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+            
+        </tbody>
+    </table>
+</div>
+
+<%// GABARITO E IDENTIFICAÇÃO MATD5  %>
+<div class="row">
+    <div class="col">
+        <h3 class="display-6 text-center">D5 - Reconhecer a conservação ou modificação de medidas dos lados, do perímetro, da área em ampliação e/ou redução de figuras poligonais usando malhas quadriculadas.</h3>            
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-warning" id="esconder_matd5">Esconder</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" id="mostrar_matd5">Mostrar</button> 
+        </div>
+    </div>
+</div>
+<div class="container-sm fecha" id="gab_matd5">
+<table class="table table-bordered table-sm">
+    <tbody>
+        <tr>
+            <th class="align-middle">NOME</th>
+            <th class="align-middle">Q1</th>
+            <th class="align-middle">Q2</th>
+            <th class="align-middle">Q3</th>
+            <th class="align-middle">Q4</th>
+            <th class="align-middle">Q5</th>
+            <th class="align-middle">Q6</th>
+            <th class="align-middle">Q7</th>
+            <th class="align-middle">Q8</th>
+            <th class="align-middle">Q9</th>
+            <th class="align-middle">Q10</th>
+            <th class="align-middle">NOTA</th>
+            <th class="align-middle">AÇÃO</th>                   
+        </tr>
+        <% matd5.forEach((matd5) => { %>
+               
+                <tr>
+                    <td class="align-middle text-nowrap"><%= matd5.nome %></td>
+                    <td class="align-middle">
+                        <%= matd5.q1 %>
+                        <%
+                            if(matd5.q1=="A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd5.q2 %>
+                        <% 
+                            if(matd5.q2 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd5.q3 %>
+                        <% 
+                            if(matd5.q3 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    
+                    <td class="align-middle">
+                        <%= matd5.q4 %>
+                        <% 
+                            if(matd5.q4 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd5.q5 %>
+
+                        <% 
+                            if(matd5.q5 == "B"){
+                                total++
+                            }
+                        %>
+                    
+                    </td>
+                    <td class="align-middle">
+                        <%= matd5.q6 %>
+                        <% 
+                            if(matd5.q6 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd5.q7 %>
+                        <% 
+                            if(matd5.q7 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd5.q8 %>
+                        <% 
+                            if(matd5.q8 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd5.q9 %>
+                        <% 
+                            if(matd5.q9 == "A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd5.q10 %>
+                        <% 
+                            if(matd5.q10 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+
+                    <td class="align-middle"><%= total %></td>
+                    <% total = 0 %>
+
+                    <td class="align-middle">
+                        <form method="POST" action="/deletarmatd5">
+                            <input type="hidden" name="id" value="<%=matd5.id%>">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+            
+        </tbody>
+    </table>
+</div>
 
 
 </body>
@@ -2553,6 +3096,18 @@
     var gabaritomatd28 = document.getElementById('gab_matd28');
     var btn_esconde_gab_matd28 = document.getElementById('esconder_matd28');
     var btn_mostra_gab_matd28 = document.getElementById('mostrar_matd28');
+    var gabaritomatd2 = document.getElementById('gab_matd2');
+    var btn_esconde_gab_matd2 = document.getElementById('esconder_matd2');
+    var btn_mostra_gab_matd2 = document.getElementById('mostrar_matd2');
+    var gabaritomatd3 = document.getElementById('gab_matd3');
+    var btn_esconde_gab_matd3 = document.getElementById('esconder_matd3');
+    var btn_mostra_gab_matd3 = document.getElementById('mostrar_matd3');
+    var gabaritomatd4 = document.getElementById('gab_matd4');
+    var btn_esconde_gab_matd4 = document.getElementById('esconder_matd4');
+    var btn_mostra_gab_matd4 = document.getElementById('mostrar_matd4');
+    var gabaritomatd5 = document.getElementById('gab_matd5');
+    var btn_esconde_gab_matd5 = document.getElementById('esconder_matd5');
+    var btn_mostra_gab_matd5 = document.getElementById('mostrar_matd5');
    
    
     btn_esconde_gab_lpd1.addEventListener('click', function() {
@@ -2698,6 +3253,41 @@
     btn_mostra_gab_matd28.addEventListener('click', function() {
         gabaritomatd28.style.display = 'block';
     });
+
+    btn_esconde_gab_matd2.addEventListener('click', function() {
+        gabaritomatd2.style.display = 'none';
+    });
+
+    btn_mostra_gab_matd2.addEventListener('click', function() {
+        gabaritomatd2.style.display = 'block';
+    });
+    btn_esconde_gab_matd3.addEventListener('click', function() {
+        gabaritomatd3.style.display = 'none';
+    });
+
+    btn_mostra_gab_matd3.addEventListener('click', function() {
+        gabaritomatd3.style.display = 'block';
+    });
+    btn_esconde_gab_matd4.addEventListener('click', function() {
+        gabaritomatd4.style.display = 'none';
+    });
+
+    btn_mostra_gab_matd4.addEventListener('click', function() {
+        gabaritomatd4.style.display = 'block';
+    });
+    btn_esconde_gab_matd5.addEventListener('click', function() {
+        gabaritomatd5.style.display = 'none';
+    });
+
+    btn_mostra_gab_matd5.addEventListener('click', function() {
+        gabaritomatd5.style.display = 'block';
+    });
+
+
+
+
+
+
 
     window.addEventListener('load', function() {
     var elementosParaEsconder = document.querySelectorAll('.fecha');
