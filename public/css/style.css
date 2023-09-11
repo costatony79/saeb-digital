@@ -50,6 +50,9 @@ input[type=radio], input[type=checkbox]  {
 #temporizador{
     position: fixed;
 }
-sub, sup {
-	font-size: 1em;
-}
+     th {
+            
+            position: sticky;
+            top: 0;
+            z-index: 1; /* Para garantir que o cabeçalho esteja acima do corpo da tabela */
+        }
