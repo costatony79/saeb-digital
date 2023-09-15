@@ -3039,6 +3039,958 @@
     </table>
 </div>
 
+<%// GABARITO E IDENTIFICAÇÃO MATD6  %>
+<div class="row">
+    <div class="col">
+        <h3 class="display-6 text-center">D6 – Estimar a medida de grandezas utilizando unidades de medida convencionais ou não.</h3>            
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-warning" id="esconder_matd6">Esconder</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" id="mostrar_matd6">Mostrar</button> 
+        </div>
+    </div>
+</div>
+<div class="container-sm fecha" id="gab_matd6">
+<table class="table table-bordered table-sm">
+    <tbody>
+        <tr>
+            <th class="align-middle">NOME</th>
+            <th class="align-middle">Q1</th>
+            <th class="align-middle">Q2</th>
+            <th class="align-middle">Q3</th>
+            <th class="align-middle">Q4</th>
+            <th class="align-middle">Q5</th>
+            <th class="align-middle">Q6</th>
+            <th class="align-middle">Q7</th>
+            <th class="align-middle">Q8</th>
+            <th class="align-middle">Q9</th>
+            <th class="align-middle">Q10</th>
+            <th class="align-middle">NOTA</th>
+            <th class="align-middle">AÇÃO</th>                   
+        </tr>
+        <% matd6.forEach((matd6) => { %>
+               
+                <tr>
+                    <td class="align-middle text-nowrap"><%= matd6.nome %></td>
+                    <td class="align-middle">
+                        <%= matd6.q1 %>
+                        <%
+                            if(matd6.q1=="C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd6.q2 %>
+                        <% 
+                            if(matd6.q2 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd6.q3 %>
+                        <% 
+                            if(matd6.q3 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    
+                    <td class="align-middle">
+                        <%= matd6.q4 %>
+                        <% 
+                            if(matd6.q4 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd6.q5 %>
+
+                        <% 
+                            if(matd6.q5 == "A"){
+                                total++
+                            }
+                        %>
+                    
+                    </td>
+                    <td class="align-middle">
+                        <%= matd6.q6 %>
+                        <% 
+                            if(matd6.q6 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd6.q7 %>
+                        <% 
+                            if(matd6.q7 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd6.q8 %>
+                        <% 
+                            if(matd6.q8 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd6.q9 %>
+                        <% 
+                            if(matd6.q9 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd6.q10 %>
+                        <% 
+                            if(matd6.q10 == "A"){
+                                total++
+                            }
+                        %>
+                    </td>
+
+                    <td class="align-middle"><%= total %></td>
+                    <% total = 0 %>
+
+                    <td class="align-middle">
+                        <form method="POST" action="/deletarmatd6">
+                            <input type="hidden" name="id" value="<%=matd6.id%>">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+            
+        </tbody>
+    </table>
+</div>
+
+<%// GABARITO E IDENTIFICAÇÃO MATD7  %>
+<div class="row">
+    <div class="col">
+        <h3 class="display-6 text-center">D7 – Resolver problemas significativos utilizando unidades de medida padronizadas como km/m/cm/mm, kg/g/mg, l/ml.</h3>            
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-warning" id="esconder_matd7">Esconder</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" id="mostrar_matd7">Mostrar</button> 
+        </div>
+    </div>
+</div>
+<div class="container-sm fecha" id="gab_matd7">
+<table class="table table-bordered table-sm">
+    <tbody>
+        <tr>
+            <th class="align-middle">NOME</th>
+            <th class="align-middle">Q1</th>
+            <th class="align-middle">Q2</th>
+            <th class="align-middle">Q3</th>
+            <th class="align-middle">Q4</th>
+            <th class="align-middle">Q5</th>
+            <th class="align-middle">Q6</th>
+            <th class="align-middle">Q7</th>
+            <th class="align-middle">Q8</th>
+            <th class="align-middle">Q9</th>
+            <th class="align-middle">Q10</th>
+            <th class="align-middle">NOTA</th>
+            <th class="align-middle">AÇÃO</th>                   
+        </tr>
+        <% matd7.forEach((matd7) => { %>
+               
+                <tr>
+                    <td class="align-middle text-nowrap"><%= matd7.nome %></td>
+                    <td class="align-middle">
+                        <%= matd7.q1 %>
+                        <%
+                            if(matd7.q1=="D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd7.q2 %>
+                        <% 
+                            if(matd7.q2 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd7.q3 %>
+                        <% 
+                            if(matd7.q3 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    
+                    <td class="align-middle">
+                        <%= matd7.q4 %>
+                        <% 
+                            if(matd7.q4 == "A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd7.q5 %>
+
+                        <% 
+                            if(matd7.q5 == "D"){
+                                total++
+                            }
+                        %>
+                    
+                    </td>
+                    <td class="align-middle">
+                        <%= matd7.q6 %>
+                        <% 
+                            if(matd7.q6 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd7.q7 %>
+                        <% 
+                            if(matd7.q7 == "A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd7.q8 %>
+                        <% 
+                            if(matd7.q8 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd7.q9 %>
+                        <% 
+                            if(matd7.q9 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd7.q10 %>
+                        <% 
+                            if(matd7.q10 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+
+                    <td class="align-middle"><%= total %></td>
+                    <% total = 0 %>
+
+                    <td class="align-middle">
+                        <form method="POST" action="/deletarmatd7">
+                            <input type="hidden" name="id" value="<%=matd7.id%>">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+            
+        </tbody>
+    </table>
+</div>
+
+<%// GABARITO E IDENTIFICAÇÃO MATD8  %>
+<div class="row">
+    <div class="col">
+        <h3 class="display-6 text-center">D8 – Estabelecer relações entre unidades de medida de tempo.</h3>            
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-warning" id="esconder_matd8">Esconder</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" id="mostrar_matd8">Mostrar</button> 
+        </div>
+    </div>
+</div>
+<div class="container-sm fecha" id="gab_matd8">
+<table class="table table-bordered table-sm">
+    <tbody>
+        <tr>
+            <th class="align-middle">NOME</th>
+            <th class="align-middle">Q1</th>
+            <th class="align-middle">Q2</th>
+            <th class="align-middle">Q3</th>
+            <th class="align-middle">Q4</th>
+            <th class="align-middle">Q5</th>
+            <th class="align-middle">Q6</th>
+            <th class="align-middle">Q7</th>
+            <th class="align-middle">Q8</th>
+            <th class="align-middle">Q9</th>
+            <th class="align-middle">Q10</th>
+            <th class="align-middle">NOTA</th>
+            <th class="align-middle">AÇÃO</th>                   
+        </tr>
+        <% matd8.forEach((matd8) => { %>
+               
+                <tr>
+                    <td class="align-middle text-nowrap"><%= matd8.nome %></td>
+                    <td class="align-middle">
+                        <%= matd8.q1 %>
+                        <%
+                            if(matd8.q1=="B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd8.q2 %>
+                        <% 
+                            if(matd8.q2 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd8.q3 %>
+                        <% 
+                            if(matd8.q3 == "A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    
+                    <td class="align-middle">
+                        <%= matd8.q4 %>
+                        <% 
+                            if(matd8.q4 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd8.q5 %>
+
+                        <% 
+                            if(matd8.q5 == "A"){
+                                total++
+                            }
+                        %>
+                    
+                    </td>
+                    <td class="align-middle">
+                        <%= matd8.q6 %>
+                        <% 
+                            if(matd8.q6 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd8.q7 %>
+                        <% 
+                            if(matd8.q7 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd8.q8 %>
+                        <% 
+                            if(matd8.q8 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd8.q9 %>
+                        <% 
+                            if(matd8.q9 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd8.q10 %>
+                        <% 
+                            if(matd8.q10 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+
+                    <td class="align-middle"><%= total %></td>
+                    <% total = 0 %>
+
+                    <td class="align-middle">
+                        <form method="POST" action="/deletarmatd8">
+                            <input type="hidden" name="id" value="<%=matd8.id%>">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+            
+        </tbody>
+    </table>
+</div>
+
+<%// GABARITO E IDENTIFICAÇÃO MATD9  %>
+<div class="row">
+    <div class="col">
+        <h3 class="display-6 text-center">D9 – Estabelecer relações entre o horário de início e término e/ou o intervalo da duração de um evento ou acontecimento.</h3>            
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-warning" id="esconder_matd9">Esconder</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" id="mostrar_matd9">Mostrar</button> 
+        </div>
+    </div>
+</div>
+<div class="container-sm fecha" id="gab_matd9">
+<table class="table table-bordered table-sm">
+    <tbody>
+        <tr>
+            <th class="align-middle">NOME</th>
+            <th class="align-middle">Q1</th>
+            <th class="align-middle">Q2</th>
+            <th class="align-middle">Q3</th>
+            <th class="align-middle">Q4</th>
+            <th class="align-middle">Q5</th>
+            <th class="align-middle">Q6</th>
+            <th class="align-middle">Q7</th>
+            <th class="align-middle">Q8</th>
+            <th class="align-middle">Q9</th>
+            <th class="align-middle">Q10</th>
+            <th class="align-middle">NOTA</th>
+            <th class="align-middle">AÇÃO</th>                   
+        </tr>
+        <% matd9.forEach((matd9) => { %>
+               
+                <tr>
+                    <td class="align-middle text-nowrap"><%= matd9.nome %></td>
+                    <td class="align-middle">
+                        <%= matd9.q1 %>
+                        <%
+                            if(matd9.q1=="B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd9.q2 %>
+                        <% 
+                            if(matd9.q2 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd9.q3 %>
+                        <% 
+                            if(matd9.q3 == "A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    
+                    <td class="align-middle">
+                        <%= matd9.q4 %>
+                        <% 
+                            if(matd9.q4 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd9.q5 %>
+
+                        <% 
+                            if(matd9.q5 == "A"){
+                                total++
+                            }
+                        %>
+                    
+                    </td>
+                    <td class="align-middle">
+                        <%= matd9.q6 %>
+                        <% 
+                            if(matd9.q6 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd9.q7 %>
+                        <% 
+                            if(matd9.q7 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd9.q8 %>
+                        <% 
+                            if(matd9.q8 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd9.q9 %>
+                        <% 
+                            if(matd9.q9 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd9.q10 %>
+                        <% 
+                            if(matd9.q10 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+
+                    <td class="align-middle"><%= total %></td>
+                    <% total = 0 %>
+
+                    <td class="align-middle">
+                        <form method="POST" action="/deletarmatd9">
+                            <input type="hidden" name="id" value="<%=matd9.id%>">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+            
+        </tbody>
+    </table>
+</div>
+
+<%// GABARITO E IDENTIFICAÇÃO MATD10  %>
+<div class="row">
+    <div class="col">
+        <h3 class="display-6 text-center">D10 – Num problema, estabelecer trocas entre cédulas e moedas do sistema monetário brasileiro, em função de seus valores.</h3>            
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-warning" id="esconder_matd10">Esconder</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" id="mostrar_matd10">Mostrar</button> 
+        </div>
+    </div>
+</div>
+<div class="container-sm fecha" id="gab_matd10">
+<table class="table table-bordered table-sm">
+    <tbody>
+        <tr>
+            <th class="align-middle">NOME</th>
+            <th class="align-middle">Q1</th>
+            <th class="align-middle">Q2</th>
+            <th class="align-middle">Q3</th>
+            <th class="align-middle">Q4</th>
+            <th class="align-middle">Q5</th>
+            <th class="align-middle">Q6</th>
+            <th class="align-middle">Q7</th>
+            <th class="align-middle">Q8</th>
+            <th class="align-middle">Q9</th>
+            <th class="align-middle">Q10</th>
+            <th class="align-middle">NOTA</th>
+            <th class="align-middle">AÇÃO</th>                   
+        </tr>
+        <% matd10.forEach((matd10) => { %>
+               
+                <tr>
+                    <td class="align-middle text-nowrap"><%= matd10.nome %></td>
+                    <td class="align-middle">
+                        <%= matd10.q1 %>
+                        <%
+                            if(matd10.q1=="B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd10.q2 %>
+                        <% 
+                            if(matd10.q2 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd10.q3 %>
+                        <% 
+                            if(matd10.q3 == "A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    
+                    <td class="align-middle">
+                        <%= matd10.q4 %>
+                        <% 
+                            if(matd10.q4 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd10.q5 %>
+
+                        <% 
+                            if(matd10.q5 == "A"){
+                                total++
+                            }
+                        %>
+                    
+                    </td>
+                    <td class="align-middle">
+                        <%= matd10.q6 %>
+                        <% 
+                            if(matd10.q6 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd10.q7 %>
+                        <% 
+                            if(matd10.q7 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd10.q8 %>
+                        <% 
+                            if(matd10.q8 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd10.q9 %>
+                        <% 
+                            if(matd10.q9 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd10.q10 %>
+                        <% 
+                            if(matd10.q10 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+
+                    <td class="align-middle"><%= total %></td>
+                    <% total = 0 %>
+
+                    <td class="align-middle">
+                        <form method="POST" action="/deletarmatd10">
+                            <input type="hidden" name="id" value="<%=matd10.id%>">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+            
+        </tbody>
+    </table>
+</div>
+
+<%// GABARITO E IDENTIFICAÇÃO MATD11  %>
+<div class="row">
+    <div class="col">
+        <h3 class="display-6 text-center">D11 – Resolver problema envolvendo o cálculo do perímetro de figuras planas, desenhadas em malhas quadriculadas.</h3>            
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-warning" id="esconder_matd11">Esconder</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" id="mostrar_matd11">Mostrar</button> 
+        </div>
+    </div>
+</div>
+<div class="container-sm fecha" id="gab_matd11">
+<table class="table table-bordered table-sm">
+    <tbody>
+        <tr>
+            <th class="align-middle">NOME</th>
+            <th class="align-middle">Q1</th>
+            <th class="align-middle">Q2</th>
+            <th class="align-middle">Q3</th>
+            <th class="align-middle">Q4</th>
+            <th class="align-middle">Q5</th>
+            <th class="align-middle">Q6</th>
+            <th class="align-middle">Q7</th>
+            <th class="align-middle">Q8</th>
+            <th class="align-middle">Q9</th>
+            <th class="align-middle">Q10</th>
+            <th class="align-middle">NOTA</th>
+            <th class="align-middle">AÇÃO</th>                   
+        </tr>
+        <% matd11.forEach((matd11) => { %>
+               
+                <tr>
+                    <td class="align-middle text-nowrap"><%= matd11.nome %></td>
+                    <td class="align-middle">
+                        <%= matd11.q1 %>
+                        <%
+                            if(matd11.q1=="B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd11.q2 %>
+                        <% 
+                            if(matd11.q2 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd11.q3 %>
+                        <% 
+                            if(matd11.q3 == "A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    
+                    <td class="align-middle">
+                        <%= matd11.q4 %>
+                        <% 
+                            if(matd11.q4 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd11.q5 %>
+
+                        <% 
+                            if(matd11.q5 == "A"){
+                                total++
+                            }
+                        %>
+                    
+                    </td>
+                    <td class="align-middle">
+                        <%= matd11.q6 %>
+                        <% 
+                            if(matd11.q6 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd11.q7 %>
+                        <% 
+                            if(matd11.q7 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd11.q8 %>
+                        <% 
+                            if(matd11.q8 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd11.q9 %>
+                        <% 
+                            if(matd11.q9 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd11.q10 %>
+                        <% 
+                            if(matd11.q10 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+
+                    <td class="align-middle"><%= total %></td>
+                    <% total = 0 %>
+
+                    <td class="align-middle">
+                        <form method="POST" action="/deletarmatd11">
+                            <input type="hidden" name="id" value="<%=matd11.id%>">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+            
+        </tbody>
+    </table>
+</div>
+
+<%// GABARITO E IDENTIFICAÇÃO MATD12  %>
+<div class="row">
+    <div class="col">
+        <h3 class="display-6 text-center">D12 – Resolver problema envolvendo o cálculo ou estimativa de áreas de figuras planas, desenhadas em malhas quadriculadas.</h3>            
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-warning" id="esconder_matd12">Esconder</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" id="mostrar_matd12">Mostrar</button> 
+        </div>
+    </div>
+</div>
+<div class="container-sm fecha" id="gab_matd12">
+<table class="table table-bordered table-sm">
+    <tbody>
+        <tr>
+            <th class="align-middle">NOME</th>
+            <th class="align-middle">Q1</th>
+            <th class="align-middle">Q2</th>
+            <th class="align-middle">Q3</th>
+            <th class="align-middle">Q4</th>
+            <th class="align-middle">Q5</th>
+            <th class="align-middle">Q6</th>
+            <th class="align-middle">Q7</th>
+            <th class="align-middle">Q8</th>
+            <th class="align-middle">Q9</th>
+            <th class="align-middle">Q10</th>
+            <th class="align-middle">NOTA</th>
+            <th class="align-middle">AÇÃO</th>                   
+        </tr>
+        <% matd12.forEach((matd12) => { %>
+               
+                <tr>
+                    <td class="align-middle text-nowrap"><%= matd12.nome %></td>
+                    <td class="align-middle">
+                        <%= matd12.q1 %>
+                        <%
+                            if(matd12.q1=="B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd12.q2 %>
+                        <% 
+                            if(matd12.q2 == "B"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd12.q3 %>
+                        <% 
+                            if(matd12.q3 == "A"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    
+                    <td class="align-middle">
+                        <%= matd12.q4 %>
+                        <% 
+                            if(matd12.q4 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd12.q5 %>
+
+                        <% 
+                            if(matd12.q5 == "A"){
+                                total++
+                            }
+                        %>
+                    
+                    </td>
+                    <td class="align-middle">
+                        <%= matd12.q6 %>
+                        <% 
+                            if(matd12.q6 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd12.q7 %>
+                        <% 
+                            if(matd12.q7 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd12.q8 %>
+                        <% 
+                            if(matd12.q8 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd12.q9 %>
+                        <% 
+                            if(matd12.q9 == "C"){
+                                total++
+                            }
+                        %>
+                    </td>
+                    <td class="align-middle">
+                        <%= matd12.q10 %>
+                        <% 
+                            if(matd12.q10 == "D"){
+                                total++
+                            }
+                        %>
+                    </td>
+
+                    <td class="align-middle"><%= total %></td>
+                    <% total = 0 %>
+
+                    <td class="align-middle">
+                        <form method="POST" action="/deletarmatd12">
+                            <input type="hidden" name="id" value="<%=matd12.id%>">
+                            <button class="btn btn-danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+            
+        </tbody>
+    </table>
+</div>
+
 
 </body>
 <script>
@@ -3108,6 +4060,34 @@
     var gabaritomatd5 = document.getElementById('gab_matd5');
     var btn_esconde_gab_matd5 = document.getElementById('esconder_matd5');
     var btn_mostra_gab_matd5 = document.getElementById('mostrar_matd5');
+
+    var gabaritomatd6 = document.getElementById('gab_matd6');
+    var btn_esconde_gab_matd6 = document.getElementById('esconder_matd6');
+    var btn_mostra_gab_matd6 = document.getElementById('mostrar_matd6');
+
+    var gabaritomatd7 = document.getElementById('gab_matd7');
+    var btn_esconde_gab_matd7 = document.getElementById('esconder_matd7');
+    var btn_mostra_gab_matd7 = document.getElementById('mostrar_matd7');
+
+    var gabaritomatd8 = document.getElementById('gab_matd8');
+    var btn_esconde_gab_matd8 = document.getElementById('esconder_matd8');
+    var btn_mostra_gab_matd8 = document.getElementById('mostrar_matd8');
+
+    var gabaritomatd9 = document.getElementById('gab_matd9');
+    var btn_esconde_gab_matd9 = document.getElementById('esconder_matd9');
+    var btn_mostra_gab_matd9 = document.getElementById('mostrar_matd9');
+
+    var gabaritomatd10 = document.getElementById('gab_matd10');
+    var btn_esconde_gab_matd10 = document.getElementById('esconder_matd10');
+    var btn_mostra_gab_matd10 = document.getElementById('mostrar_matd10');
+
+    var gabaritomatd11 = document.getElementById('gab_matd11');
+    var btn_esconde_gab_matd11 = document.getElementById('esconder_matd11');
+    var btn_mostra_gab_matd11 = document.getElementById('mostrar_matd11');
+
+    var gabaritomatd12 = document.getElementById('gab_matd12');
+    var btn_esconde_gab_matd12 = document.getElementById('esconder_matd12');
+    var btn_mostra_gab_matd12 = document.getElementById('mostrar_matd12');
    
    
     btn_esconde_gab_lpd1.addEventListener('click', function() {
@@ -3281,6 +4261,62 @@
 
     btn_mostra_gab_matd5.addEventListener('click', function() {
         gabaritomatd5.style.display = 'block';
+    });
+
+    btn_esconde_gab_matd6.addEventListener('click', function() {
+        gabaritomatd6.style.display = 'none';
+    });
+
+    btn_mostra_gab_matd6.addEventListener('click', function() {
+        gabaritomatd6.style.display = 'block';
+    });
+
+    btn_esconde_gab_matd7.addEventListener('click', function() {
+        gabaritomatd7.style.display = 'none';
+    });
+
+    btn_mostra_gab_matd7.addEventListener('click', function() {
+        gabaritomatd7.style.display = 'block';
+    });
+
+    btn_esconde_gab_matd8.addEventListener('click', function() {
+        gabaritomatd8.style.display = 'none';
+    });
+
+    btn_mostra_gab_matd8.addEventListener('click', function() {
+        gabaritomatd8.style.display = 'block';
+    });
+
+    btn_esconde_gab_matd9.addEventListener('click', function() {
+        gabaritomatd9.style.display = 'none';
+    });
+
+    btn_mostra_gab_matd9.addEventListener('click', function() {
+        gabaritomatd9.style.display = 'block';
+    });
+
+    btn_esconde_gab_matd10.addEventListener('click', function() {
+        gabaritomatd10.style.display = 'none';
+    });
+
+    btn_mostra_gab_matd10.addEventListener('click', function() {
+        gabaritomatd10.style.display = 'block';
+    });
+
+    btn_esconde_gab_matd11.addEventListener('click', function() {
+        gabaritomatd11.style.display = 'none';
+    });
+
+    btn_mostra_gab_matd11.addEventListener('click', function() {
+        gabaritomatd11.style.display = 'block';
+    });
+
+    btn_esconde_gab_matd12.addEventListener('click', function() {
+        gabaritomatd12.style.display = 'none';
+    });
+
+    btn_mostra_gab_matd12.addEventListener('click', function() {
+        gabaritomatd12.style.display = 'block';
     });
 
 

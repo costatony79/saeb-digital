@@ -65,6 +65,20 @@ const Matd3 = require("./database/Matd3");
 const Matd4 = require("./database/Matd4");
 //model do BD para receber as respostas do gabarito de MATD5
 const Matd5 = require("./database/Matd5");
+//model do BD para receber as respostas do gabarito de MATD6
+const Matd6 = require("./database/Matd6");
+//model do BD para receber as respostas do gabarito de MATD7
+const Matd7 = require("./database/Matd7");
+//model do BD para receber as respostas do gabarito de MATD8
+const Matd8 = require("./database/Matd8");
+//model do BD para receber as respostas do gabarito de MATD9
+const Matd9 = require("./database/Matd9");
+//model do BD para receber as respostas do gabarito de MATD10
+const Matd10 = require("./database/Matd10");
+//model do BD para receber as respostas do gabarito de MATD11
+const Matd11 = require("./database/Matd11");
+//model do BD para receber as respostas do gabarito de MATD12
+const Matd12 = require("./database/Matd12");
 
 //Conexão com o banco de dados
 connection
@@ -95,8 +109,38 @@ app.get("/", (req, res) => {
 app.get("/gabaritos", (req, res) => {
     var total = 0;
     var lpdescritor3, lpdescritor15, matdescritor18, matdescritor19, matdescritor20, matdescritor21,  matdescritor22, lpdescritor8, lpdescritor10, lpdescritor11, lpdescritor12, 
-    matdescritor23, matdescritor24, matdescritor25, matdescritor26, matdescritor27, matdescritor28, matdescritor2, matdescritor3, matdescritor4, matdescritor5;
+    matdescritor23, matdescritor24, matdescritor25, matdescritor26, matdescritor27, matdescritor28, matdescritor2, matdescritor3, matdescritor4, matdescritor5, matdescritor6, 
+    matdescritor7, matdescritor8, matdescritor9, matdescritor10, matdescritor11, matdescritor12;
  
+    
+    Matd12.findAll({order: [['nome', 'ASC']]}).then(matd12 => {
+        matdescritor12 = matd12;
+    });
+    
+    Matd11.findAll({order: [['nome', 'ASC']]}).then(matd11 => {
+        matdescritor11 = matd11;
+    });
+    
+    Matd10.findAll({order: [['nome', 'ASC']]}).then(matd10 => {
+        matdescritor10 = matd10;
+    });
+    
+    Matd9.findAll({order: [['nome', 'ASC']]}).then(matd9 => {
+        matdescritor9 = matd9;
+    });
+    
+    Matd8.findAll({order: [['nome', 'ASC']]}).then(matd8 => {
+        matdescritor8 = matd8;
+    });
+    
+    Matd7.findAll({order: [['nome', 'ASC']]}).then(matd7 => {
+        matdescritor7 = matd7;
+    });
+
+    Matd6.findAll({order: [['nome', 'ASC']]}).then(matd6 => {
+        matdescritor6 = matd6;
+    });
+
     Matd5.findAll({order: [['nome', 'ASC']]}).then(matd5 => {
         matdescritor5 = matd5;
     });
@@ -205,7 +249,14 @@ app.get("/gabaritos", (req, res) => {
             matd2: matdescritor2,
             matd3: matdescritor3,
             matd4: matdescritor4,
-            matd5: matdescritor5
+            matd5: matdescritor5,
+            matd6: matdescritor6,
+            matd7: matdescritor7,
+            matd8: matdescritor8,
+            matd9: matdescritor9,
+            matd10: matdescritor10,
+            matd11: matdescritor11,
+            matd12: matdescritor12
 
         }); 
     });
@@ -319,6 +370,41 @@ app.get("/matd4", (req, res) => {
 //rota para a página das questões de MATD5
 app.get("/matd5", (req, res) => {
     res.render("matd5");
+});
+
+//rota para a página das questões de MATD6
+app.get("/matd6", (req, res) => {
+    res.render("matd6");
+});
+
+//rota para a página das questões de MATD7
+app.get("/matd7", (req, res) => {
+    res.render("matd7");
+});
+
+//rota para a página das questões de MATD8
+app.get("/matd8", (req, res) => {
+    res.render("matd8");
+});
+
+//rota para a página das questões de MATD9
+app.get("/matd9", (req, res) => {
+    res.render("matd9");
+});
+
+//rota para a página das questões de MATD10
+app.get("/matd10", (req, res) => {
+    res.render("matd10");
+});
+
+//rota para a página das questões de MATD11
+app.get("/matd11", (req, res) => {
+    res.render("matd11");
+});
+
+//rota para a página das questões de MATD12
+app.get("/matd12", (req, res) => {
+    res.render("matd12");
 });
 
 // ROTAS PARA ENVIO DOS GABARITOS
@@ -1553,6 +1639,397 @@ app.post("/gabarito_matd5", (req, res) => {
     }
 });
 
+//rota para envio do gabarito de MATD6
+app.post("/gabarito_matd6", (req, res) => {
+    var nome = req.body.name;
+    var q1 = req.body.q1;
+    var q2 = req.body.q2;
+    var q3 = req.body.q3;
+    var q4 = req.body.q4;
+    var q5 = req.body.q5;
+    var q6 = req.body.q6;
+    var q7 = req.body.q7;
+    var q8 = req.body.q8;
+    var q9 = req.body.q9;
+    var q10 = req.body.q10;
+    
+    if(nome==""||q1==null||q2==null||q3==null||q4==null||q5==null||q6==null
+    ||q7==null||q8==null||q9==null||q10==null){
+        notifier.notify({
+            title: 'RESPONDA TODAS AS PERGUNTAS',
+            message: 'Você não pode deixar nenhum campo em branco.'
+          });
+        res.redirect("/matd6");
+    }else {
+        Matd6.create({
+            nome: nome.toUpperCase(),
+            q1: q1,
+            q2: q2,
+            q3: q3,
+            q4: q4,
+            q5: q5,
+            q6: q6,
+            q7: q7,
+            q8: q8,
+            q9: q9,
+            q10: q10
+        }).then(() => {
+            notifier.notify({
+                title: 'GABARITO SALVO COM SUCESSO',
+                message: 'Parabéns você preencheu tudo.'
+              });
+              res.render("confirmacao", {
+                nome: nome,
+                q1: q1,
+                q2: q2,
+                q3: q3,
+                q4: q4,
+                q5: q5,
+                q6: q6,
+                q7: q7,
+                q8: q8,
+                q9: q9,
+                q10: q10
+            });
+        });
+    }
+});
+
+//rota para envio do gabarito de MATD7
+app.post("/gabarito_matd7", (req, res) => {
+    var nome = req.body.name;
+    var q1 = req.body.q1;
+    var q2 = req.body.q2;
+    var q3 = req.body.q3;
+    var q4 = req.body.q4;
+    var q5 = req.body.q5;
+    var q6 = req.body.q6;
+    var q7 = req.body.q7;
+    var q8 = req.body.q8;
+    var q9 = req.body.q9;
+    var q10 = req.body.q10;
+    
+    if(nome==""||q1==null||q2==null||q3==null||q4==null||q5==null||q6==null
+    ||q7==null||q8==null||q9==null||q10==null){
+        notifier.notify({
+            title: 'RESPONDA TODAS AS PERGUNTAS',
+            message: 'Você não pode deixar nenhum campo em branco.'
+          });
+        res.redirect("/matd7");
+    }else {
+        Matd7.create({
+            nome: nome.toUpperCase(),
+            q1: q1,
+            q2: q2,
+            q3: q3,
+            q4: q4,
+            q5: q5,
+            q6: q6,
+            q7: q7,
+            q8: q8,
+            q9: q9,
+            q10: q10
+        }).then(() => {
+            notifier.notify({
+                title: 'GABARITO SALVO COM SUCESSO',
+                message: 'Parabéns você preencheu tudo.'
+              });
+              res.render("confirmacao", {
+                nome: nome,
+                q1: q1,
+                q2: q2,
+                q3: q3,
+                q4: q4,
+                q5: q5,
+                q6: q6,
+                q7: q7,
+                q8: q8,
+                q9: q9,
+                q10: q10
+            });
+        });
+    }
+});
+
+//rota para envio do gabarito de MATD8
+app.post("/gabarito_matd8", (req, res) => {
+    var nome = req.body.name;
+    var q1 = req.body.q1;
+    var q2 = req.body.q2;
+    var q3 = req.body.q3;
+    var q4 = req.body.q4;
+    var q5 = req.body.q5;
+    var q6 = req.body.q6;
+    var q7 = req.body.q7;
+    var q8 = req.body.q8;
+    var q9 = req.body.q9;
+    var q10 = req.body.q10;
+    
+    if(nome==""||q1==null||q2==null||q3==null||q4==null||q5==null||q6==null
+    ||q7==null||q8==null||q9==null||q10==null){
+        notifier.notify({
+            title: 'RESPONDA TODAS AS PERGUNTAS',
+            message: 'Você não pode deixar nenhum campo em branco.'
+          });
+        res.redirect("/matd8");
+    }else {
+        Matd8.create({
+            nome: nome.toUpperCase(),
+            q1: q1,
+            q2: q2,
+            q3: q3,
+            q4: q4,
+            q5: q5,
+            q6: q6,
+            q7: q7,
+            q8: q8,
+            q9: q9,
+            q10: q10
+        }).then(() => {
+            notifier.notify({
+                title: 'GABARITO SALVO COM SUCESSO',
+                message: 'Parabéns você preencheu tudo.'
+              });
+              res.render("confirmacao", {
+                nome: nome,
+                q1: q1,
+                q2: q2,
+                q3: q3,
+                q4: q4,
+                q5: q5,
+                q6: q6,
+                q7: q7,
+                q8: q8,
+                q9: q9,
+                q10: q10
+            });
+        });
+    }
+});
+
+//rota para envio do gabarito de MATD9
+app.post("/gabarito_matd9", (req, res) => {
+    var nome = req.body.name;
+    var q1 = req.body.q1;
+    var q2 = req.body.q2;
+    var q3 = req.body.q3;
+    var q4 = req.body.q4;
+    var q5 = req.body.q5;
+    var q6 = req.body.q6;
+    var q7 = req.body.q7;
+    var q8 = req.body.q8;
+    var q9 = req.body.q9;
+    var q10 = req.body.q10;
+    
+    if(nome==""||q1==null||q2==null||q3==null||q4==null||q5==null||q6==null
+    ||q7==null||q8==null||q9==null||q10==null){
+        notifier.notify({
+            title: 'RESPONDA TODAS AS PERGUNTAS',
+            message: 'Você não pode deixar nenhum campo em branco.'
+          });
+        res.redirect("/matd9");
+    }else {
+        Matd9.create({
+            nome: nome.toUpperCase(),
+            q1: q1,
+            q2: q2,
+            q3: q3,
+            q4: q4,
+            q5: q5,
+            q6: q6,
+            q7: q7,
+            q8: q8,
+            q9: q9,
+            q10: q10
+        }).then(() => {
+            notifier.notify({
+                title: 'GABARITO SALVO COM SUCESSO',
+                message: 'Parabéns você preencheu tudo.'
+              });
+              res.render("confirmacao", {
+                nome: nome,
+                q1: q1,
+                q2: q2,
+                q3: q3,
+                q4: q4,
+                q5: q5,
+                q6: q6,
+                q7: q7,
+                q8: q8,
+                q9: q9,
+                q10: q10
+            });
+        });
+    }
+});
+
+//rota para envio do gabarito de MATD10
+app.post("/gabarito_matd10", (req, res) => {
+    var nome = req.body.name;
+    var q1 = req.body.q1;
+    var q2 = req.body.q2;
+    var q3 = req.body.q3;
+    var q4 = req.body.q4;
+    var q5 = req.body.q5;
+    var q6 = req.body.q6;
+    var q7 = req.body.q7;
+    var q8 = req.body.q8;
+    var q9 = req.body.q9;
+    var q10 = req.body.q10;
+    
+    if(nome==""||q1==null||q2==null||q3==null||q4==null||q5==null||q6==null
+    ||q7==null||q8==null||q9==null||q10==null){
+        notifier.notify({
+            title: 'RESPONDA TODAS AS PERGUNTAS',
+            message: 'Você não pode deixar nenhum campo em branco.'
+          });
+        res.redirect("/matd10");
+    }else {
+        Matd10.create({
+            nome: nome.toUpperCase(),
+            q1: q1,
+            q2: q2,
+            q3: q3,
+            q4: q4,
+            q5: q5,
+            q6: q6,
+            q7: q7,
+            q8: q8,
+            q9: q9,
+            q10: q10
+        }).then(() => {
+            notifier.notify({
+                title: 'GABARITO SALVO COM SUCESSO',
+                message: 'Parabéns você preencheu tudo.'
+              });
+              res.render("confirmacao", {
+                nome: nome,
+                q1: q1,
+                q2: q2,
+                q3: q3,
+                q4: q4,
+                q5: q5,
+                q6: q6,
+                q7: q7,
+                q8: q8,
+                q9: q9,
+                q10: q10
+            });
+        });
+    }
+});
+
+//rota para envio do gabarito de MATD11
+app.post("/gabarito_matd11", (req, res) => {
+    var nome = req.body.name;
+    var q1 = req.body.q1;
+    var q2 = req.body.q2;
+    var q3 = req.body.q3;
+    var q4 = req.body.q4;
+    var q5 = req.body.q5;
+    var q6 = req.body.q6;
+    var q7 = req.body.q7;
+    var q8 = req.body.q8;
+    var q9 = req.body.q9;
+    var q10 = req.body.q10;
+    
+    if(nome==""||q1==null||q2==null||q3==null||q4==null||q5==null||q6==null
+    ||q7==null||q8==null||q9==null||q10==null){
+        notifier.notify({
+            title: 'RESPONDA TODAS AS PERGUNTAS',
+            message: 'Você não pode deixar nenhum campo em branco.'
+          });
+        res.redirect("/matd11");
+    }else {
+        Matd11.create({
+            nome: nome.toUpperCase(),
+            q1: q1,
+            q2: q2,
+            q3: q3,
+            q4: q4,
+            q5: q5,
+            q6: q6,
+            q7: q7,
+            q8: q8,
+            q9: q9,
+            q10: q10
+        }).then(() => {
+            notifier.notify({
+                title: 'GABARITO SALVO COM SUCESSO',
+                message: 'Parabéns você preencheu tudo.'
+              });
+              res.render("confirmacao", {
+                nome: nome,
+                q1: q1,
+                q2: q2,
+                q3: q3,
+                q4: q4,
+                q5: q5,
+                q6: q6,
+                q7: q7,
+                q8: q8,
+                q9: q9,
+                q10: q10
+            });
+        });
+    }
+});
+
+//rota para envio do gabarito de MATD12
+app.post("/gabarito_matd12", (req, res) => {
+    var nome = req.body.name;
+    var q1 = req.body.q1;
+    var q2 = req.body.q2;
+    var q3 = req.body.q3;
+    var q4 = req.body.q4;
+    var q5 = req.body.q5;
+    var q6 = req.body.q6;
+    var q7 = req.body.q7;
+    var q8 = req.body.q8;
+    var q9 = req.body.q9;
+    var q10 = req.body.q10;
+    
+    if(nome==""||q1==null||q2==null||q3==null||q4==null||q5==null||q6==null
+    ||q7==null||q8==null||q9==null||q10==null){
+        notifier.notify({
+            title: 'RESPONDA TODAS AS PERGUNTAS',
+            message: 'Você não pode deixar nenhum campo em branco.'
+          });
+        res.redirect("/matd12");
+    }else {
+        Matd12.create({
+            nome: nome.toUpperCase(),
+            q1: q1,
+            q2: q2,
+            q3: q3,
+            q4: q4,
+            q5: q5,
+            q6: q6,
+            q7: q7,
+            q8: q8,
+            q9: q9,
+            q10: q10
+        }).then(() => {
+            notifier.notify({
+                title: 'GABARITO SALVO COM SUCESSO',
+                message: 'Parabéns você preencheu tudo.'
+              });
+              res.render("confirmacao", {
+                nome: nome,
+                q1: q1,
+                q2: q2,
+                q3: q3,
+                q4: q4,
+                q5: q5,
+                q6: q6,
+                q7: q7,
+                q8: q8,
+                q9: q9,
+                q10: q10
+            });
+        });
+    }
+});
 
 
 // ROTAS PARA APAGAR REGISTROS NO BANCO DE DADOS
@@ -1907,6 +2384,115 @@ app.post("/deletarmatd5", (req, res) => {
                             
                             }); 
 
+//rota para apagar um registro da tabela de MATD6
+app.post("/deletarmatd6", (req, res) => {
+    var id = req.body.id;
+    if(id != undefined){
+     Matd6.destroy({
+        where: {
+            id: id
+            }
+                                  
+    }).then(()=>{
+        res.redirect("/gabaritos");
+     });
+    }
+               
+    }); 
+
+//rota para apagar um registro da tabela de MATD7
+app.post("/deletarmatd7", (req, res) => {
+    var id = req.body.id;
+    if(id != undefined){
+     Matd7.destroy({
+        where: {
+            id: id
+            }
+                                  
+    }).then(()=>{
+        res.redirect("/gabaritos");
+     });
+    }
+               
+    }); 
+
+//rota para apagar um registro da tabela de MATD8
+    app.post("/deletarmatd8", (req, res) => {
+        var id = req.body.id;
+        if(id != undefined){
+         Matd8.destroy({
+            where: {
+                id: id
+                }
+                                      
+        }).then(()=>{
+            res.redirect("/gabaritos");
+         });
+        }
+                   
+        }); 
+//rota para apagar um registro da tabela de MATD9
+    app.post("/deletarmatd9", (req, res) => {
+        var id = req.body.id;
+        if(id != undefined){
+         Matd9.destroy({
+            where: {
+                id: id
+                }
+                                      
+        }).then(()=>{
+            res.redirect("/gabaritos");
+         });
+        }
+                   
+        }); 
+//rota para apagar um registro da tabela de MATD10
+    app.post("/deletarmatd10", (req, res) => {
+        var id = req.body.id;
+        if(id != undefined){
+         Matd10.destroy({
+            where: {
+                id: id
+                }
+                                      
+        }).then(()=>{
+            res.redirect("/gabaritos");
+         });
+        }
+                   
+        }); 
+
+//rota para apagar um registro da tabela de MATD11
+    app.post("/deletarmatd11", (req, res) => {
+        var id = req.body.id;
+        if(id != undefined){
+         Matd11.destroy({
+            where: {
+                id: id
+                }
+                                      
+        }).then(()=>{
+            res.redirect("/gabaritos");
+         });
+        }
+                   
+        });
+//rota para apagar um registro da tabela de MATD12
+app.post("/deletarmatd12", (req, res) => {
+    var id = req.body.id;
+    if(id != undefined){
+     Matd12.destroy({
+        where: {
+            id: id
+            }
+                                  
+    }).then(()=>{
+        res.redirect("/gabaritos");
+     });
+    }
+               
+    }); 
+    
 
 //servidor
 app.listen(1519, ()=>{
